@@ -1,0 +1,47 @@
+{
+  "files": {
+    "include": ["./src"]
+  },
+  "organizeImports": {
+    "enabled": true
+  },
+  "linter": {
+    "rules": {
+      "suspicious": {
+        "noDebugger": "off"
+      },
+      "style": {
+        "noShoutyConstants": "warn",
+        "useNamingConvention": "error",
+        "noNonNullAssertion": "off"
+      },
+      "nursery": { "useSortedClasses": "warn" }
+    }
+  },
+  "formatter": {
+    "enabled": true,
+    "formatWithErrors": false,
+    "ignore": [],
+    "attributePosition": "auto",
+    "indentStyle": "tab",
+    "indentWidth": 2,
+    "lineEnding": "lf",
+    "lineWidth": 80
+  },
+  "javascript": {
+    "formatter": {
+      "arrowParentheses": "always",
+      "bracketSameLine": false,
+      "bracketSpacing": true,
+      "jsxQuoteStyle": "double",
+      "quoteProperties": "asNeeded",
+      "semicolons": "always",
+      "trailingComma": "all"
+    }
+  },
+  "json": {
+    "formatter": {
+      "trailingCommas": "none"
+    }
+  }
+}

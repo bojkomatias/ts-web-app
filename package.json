@@ -1,0 +1,36 @@
+{
+  "name": "ts-web-template",
+  "type": "module",
+  "scripts": {
+    "dev": "vinxi dev",
+    "build": "vinxi build",
+    "start": "vinxi start",
+    "lint": "bunx @biomejs/biome lint --apply-unsafe ./src & bunx @biomejs/biome format --write ./src"
+  },
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "@types/node": "^20.12.11",
+    "oxlint": "^0.4.2",
+    "prettier": "^3.2.5"
+  },
+  "dependencies": {
+    "@ark-ui/solid": "^3.0.2",
+    "@prisma/client": "^5.13.0",
+    "@solid-primitives/scheduled": "^1.4.3",
+    "@solidjs/meta": "^0.29.4",
+    "@solidjs/router": "^0.13.3",
+    "@solidjs/start": "1.0.0-rc.1",
+    "@tailwindcss/vite": "^4.0.0-alpha.15",
+    "@tanstack/solid-table": "^8.17.0",
+    "clsx": "^2.1.1",
+    "lucide-solid": "^0.378.0",
+    "prisma": "^5.13.0",
+    "solid-js": "^1.8.17",
+    "tailwind-variants": "^0.2.1",
+    "tailwindcss": "^4.0.0-alpha.15",
+    "vinxi": "^0.3.11"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
