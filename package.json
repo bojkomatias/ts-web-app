@@ -5,7 +5,7 @@
     "dev": "vinxi dev",
     "build": "vinxi build",
     "start": "vinxi start",
-    "lint": "bunx @biomejs/biome lint --apply-unsafe ./src & bunx @biomejs/biome format --write ./src"
+    "lint": "bunx @biomejs/biome lint --write ./src & bunx @biomejs/biome format --write ./src"
   },
   "devDependencies": {
     "@faker-js/faker": "^8.4.1",
