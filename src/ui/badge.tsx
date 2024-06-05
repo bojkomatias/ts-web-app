@@ -1,7 +1,7 @@
-import clsx from "clsx";
-import { type ButtonProps, TouchTarget } from "./button";
-import type { HTMLArkProps } from "@ark-ui/solid";
-import type { JSX } from "solid-js";
+import type { HTMLArkProps } from "@ark-ui/solid"
+import clsx from "clsx"
+import type { JSX } from "solid-js"
+import { type ButtonProps, TouchTarget } from "./button"
 
 const colors = {
 	red: "bg-red-500/15 text-red-700 group-data-[hover]:bg-red-500/25 dark:bg-red-500/10 dark:text-red-400 dark:group-data-[hover]:bg-red-500/20",
@@ -31,11 +31,11 @@ const colors = {
 	pink: "bg-pink-400/15 text-pink-700 group-data-[hover]:bg-pink-400/25 dark:bg-pink-400/10 dark:text-pink-400 dark:group-data-[hover]:bg-pink-400/20",
 	rose: "bg-rose-400/15 text-rose-700 group-data-[hover]:bg-rose-400/25 dark:bg-rose-400/10 dark:text-rose-400 dark:group-data-[hover]:bg-rose-400/20",
 	zinc: "bg-zinc-600/10 text-zinc-700 group-data-[hover]:bg-zinc-600/20 dark:bg-white/5 dark:text-zinc-400 dark:group-data-[hover]:bg-white/10",
-};
+}
 
 type BadgeProps = {
-	color?: keyof typeof colors;
-};
+	color?: keyof typeof colors
+}
 
 export function Badge({
 	color = "zinc",
@@ -50,7 +50,7 @@ export function Badge({
 				colors[color],
 			)}
 		/>
-	);
+	)
 }
 
 export const BadgeButton = ({
@@ -58,12 +58,12 @@ export const BadgeButton = ({
 	children,
 	...props
 }: BadgeProps & {
-	children: JSX.Element;
+	children: JSX.Element
 } & ButtonProps) => {
 	const classes = clsx(
 		props.class,
 		"group relative inline-flex rounded-lg focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500",
-	);
+	)
 
 	return "href" in props ? (
 		<a {...props} class={classes} ref={props.ref}>
@@ -78,5 +78,5 @@ export const BadgeButton = ({
 				<Badge color={color}>{children}</Badge>
 			</TouchTarget>
 		</button>
-	);
-};
+	)
+}

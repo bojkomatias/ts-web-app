@@ -1,10 +1,10 @@
-import { createColumnHelper } from "@tanstack/solid-table";
-import type { Person } from "./makeData";
-import { Badge } from "~/ui/badge";
-import { Text } from "lucide-solid";
-import { Button } from "~/ui/button";
+import { createColumnHelper } from "@tanstack/solid-table"
+import { Text } from "lucide-solid"
+import { Badge } from "~/ui/badge"
+import { Button } from "~/ui/button"
+import type { Person } from "./makeData"
 
-const columnHelper = createColumnHelper<Person>();
+const columnHelper = createColumnHelper<Person>()
 
 // Make some columns!
 export const columns = [
@@ -51,4 +51,4 @@ export const columns = [
 			</div>
 		),
 	}),
-];
+]

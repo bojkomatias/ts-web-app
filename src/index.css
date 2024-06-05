@@ -1,32 +1,35 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 /* Theme contemplates only one media mode, replicate same structure for adding new ones */
+/**
 @theme {
   --font-family-display: "Satoshi", "sans-serif";
 
-  /* Backgrounds */
+
   --color-background: oklch(15.98% 0.007 214.54);
   --color-card: oklch(18.33% 0.008 229.36);
   --color-popover: oklch(20.08% 0.006 214.45);
   --color-muted: oklch(23.93% 0.008 223.81);
 
-  /* Foreground, text, content */
+
   --color-foreground: oklch(96.97% 0.002 247.84);
   --color-foreground-dimmed: oklch(92.37% 0.003 228.79);
   --color-muted-foreground: oklch(76.49% 0.004 236.52);
 
-  /* Pair specific colors (bg + fg, contrasting) */
+
   --color-accent: oklch(90.59% 0.1535717689544648 194.78309040830206);
   --color-accent-foreground: oklch(15.98% 0.007 214.54);
 
-  /* Action related pairs */
+
   --color-destructive: oklch(54.46% 0.212 27.18);
   --color-destructive-foreground: oklch(96.97% 0.002 247.84);
 
-  /* Borders, dividers, rings */
+
   --color-line: oklch(27.17% 0.009 219.82);
 
-  /* Border radii */
+
   --radius-xs: 0.1rem;
   --radius-sm: 0.2rem;
   --radius-md: 0.3rem;
@@ -34,3 +37,4 @@
   --radius-xl: 0.7rem;
   --radius-2xl: 1rem;
 }
+*/

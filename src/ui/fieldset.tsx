@@ -24,7 +24,7 @@ export function Legend(props: HTMLArkProps<"legend">) {
       data-slot="legend"
       class={clsx(
         props.class,
-        "text-foreground text-base/6 font-semibold data-[disabled]:opacity-50 sm:text-sm/6",
+        "text-base/6 font-semibold text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white",
       )}
     />
   );
@@ -67,7 +67,7 @@ export function Label({
       data-slot="label"
       class={clsx(
         props.class,
-        "text-foreground text-base/6 select-none data-[disabled]:opacity-50 sm:text-sm/6",
+        "select-none text-base/6 text-zinc-950 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-white",
       )}
     />
   );
@@ -86,7 +86,24 @@ export function Description({
       data-slot="description"
       class={clsx(
         props.class,
-        "text-muted-foreground text-base/6 data-[disabled]:opacity-50 sm:text-sm/6",
+        "text-base/6 text-zinc-500 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-zinc-400",
+      )}
+    />
+  );
+}
+
+export function ErrorMesssage(
+  props: {
+    className?: string;
+  } & HTMLArkProps<"div">,
+) {
+  return (
+    <div
+      data-slot="error"
+      {...props}
+      class={clsx(
+        props.class,
+        "text-base/6 text-red-600 data-[disabled]:opacity-50 sm:text-sm/6 dark:text-red-500",
       )}
     />
   );

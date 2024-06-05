@@ -1,51 +1,54 @@
+import { ArrowUpIcon } from "lucide-solid";
+import { createSignal } from "solid-js";
+import { Button } from "~/ui/button";
+import { Checkbox } from "~/ui/checkbox";
 import {
-  Fieldset,
-  Legend,
-  FieldGroup,
-  Field,
-  Label,
   Description,
+  ErrorMesssage,
+  Field,
+  FieldGroup,
+  Fieldset,
+  Label,
+  Legend,
 } from "~/ui/fieldset";
 import { Input } from "~/ui/input";
-import { Textarea } from "~/ui/textarea";
 import { Text } from "~/ui/text";
-
-import { Checkbox } from "~/ui/checkbox";
-
-import { createSignal } from "solid-js";
+import { Textarea } from "~/ui/textarea";
 
 export default function Home() {
   const [checked, setChecked] = createSignal<boolean | "indeterminate">(true);
-  return (
-    <form action="/orders" method="post" class="p-20">
-      {/* ... */}
-      <Fieldset>
-        <Legend>Shipping details</Legend>
-        <Text>Without this your odds of getting your order are low.</Text>
-        <FieldGroup>
-          <Field>
-            <Label for="sa">Street address</Label>
-            <Input name="street_address" id="sa" />
-          </Field>
-          <Field>
-            <Checkbox
-              id="check"
-              checked={checked()}
-              onCheckedChange={(e) => setChecked(e.checked)}
-            />
 
-            <Description>We currently only ship to North America.</Description>
-          </Field>
-          <Field>
-            <Label for="notes">Delivery notes</Label>
-            <Textarea name="notes" id="notes" />
-            <Description>
-              If you have a tiger, we'd like to know about it.
-            </Description>
-          </Field>
-        </FieldGroup>
-      </Fieldset>
-      {/* ... */}
-    </form>
+  return (
+    <div class="p-20">
+      <Button outline>
+        Hola <ArrowUpIcon data-slot="icon" />
+      </Button>
+      <form action="/orders" method="post" class="p-20">
+        {/* ... */}
+        <Fieldset>
+          <Legend>Shipping details</Legend>
+          <Text>Without this your odds of getting your order are low.</Text>
+          <FieldGroup>
+            <Field>
+              <Label for="sa">Street address</Label>
+              <Input name="street_address" id="sa" />
+            </Field>
+            <Field>
+              <Checkbox
+                checked={checked()}
+                onCheckedChange={(e) => setChecked(e.checked)}
+              >
+                This is garbaje
+              </Checkbox>
+              <Description>
+                If you have a tiger, we'd like to know about it.
+              </Description>
+              <ErrorMesssage>This is wrong</ErrorMesssage>
+            </Field>
+          </FieldGroup>
+        </Fieldset>
+        {/* ... */}
+      </form>
+    </div>
   );
 }

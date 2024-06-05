@@ -1,11 +1,11 @@
-import { Calculator, LayoutDashboard, UserSquare, Plus } from "lucide-solid";
-import type { JSX } from "solid-js";
+import { Calculator, LayoutDashboard, Plus, UserSquare } from "lucide-solid"
+import type { JSX } from "solid-js"
 
 type Navigation = {
-	href: string;
-	text: string;
-	icon: (props: JSX.IntrinsicElements["svg"]) => JSX.Element;
-};
+	href: string
+	text: string
+	icon: (props: JSX.IntrinsicElements["svg"]) => JSX.Element
+}
 
 export const navigation: Navigation[] = [
 	{
@@ -23,4 +23,4 @@ export const navigation: Navigation[] = [
 		text: "Teams",
 		icon: UserSquare,
 	},
-];
+]

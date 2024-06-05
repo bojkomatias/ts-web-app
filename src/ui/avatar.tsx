@@ -1,7 +1,6 @@
+import type { HTMLArkProps } from "@ark-ui/solid";
 import clsx from "clsx";
 import { TouchTarget } from "./button";
-import { Ref } from "solid-js";
-import { HTMLArkProps } from "@ark-ui/solid";
 
 type AvatarProps = {
   src?: string | null;
@@ -35,7 +34,7 @@ export function Avatar({
     >
       {initials && (
         <svg
-          class="size-full fill-current p-[5%] text-[48px] font-medium uppercase select-none"
+          class="size-full select-none fill-current p-[5%] text-[48px] font-medium uppercase"
           viewBox="0 0 100 100"
           aria-hidden={alt ? undefined : "true"}
         >
@@ -61,7 +60,7 @@ export const AvatarButton = ({
     | Omit<HTMLArkProps<"button">, "class">
     | Omit<HTMLArkProps<"a">, "class">
   )) => {
-  let classes = clsx(
+  const classes = clsx(
     props.class,
     square ? "rounded-[20%]" : "rounded-full",
     "relative inline-grid focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500",

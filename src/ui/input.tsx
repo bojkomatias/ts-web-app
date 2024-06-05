@@ -14,9 +14,9 @@ type InputProps = {
     | "text"
     | "url"
     | DateType;
-} & HTMLArkProps<"input">;
+} & { invalid?: boolean } & HTMLArkProps<"input">;
 
-export const Input = (props: InputProps) => {
+export const Input = ({ invalid, ...props }: InputProps) => {
   return (
     <span
       data-slot="control"
@@ -24,19 +24,23 @@ export const Input = (props: InputProps) => {
         props.class,
         // Basic layout
         "relative block w-full",
-
+        // Background color + shadow applied to inset pseudo element, so shadow blends with border in light mode
+        "before:absolute before:inset-px before:rounded-[calc(theme(borderRadius.lg)-1px)] before:bg-white before:shadow",
+        // Background color is moved to control and shadow is removed in dark mode so hide `before` pseudo
+        "dark:before:hidden",
         // Focus ring
-        "after:pointer-events-none after:absolute after:inset-0 after:rounded after:ring-transparent after:ring-inset sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500",
-
+        "after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-inset after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500",
         // Disabled state
-        "before:has-[[data-disabled]]:bg-muted/20 has-[[data-disabled]]:opacity-50 before:has-[[data-disabled]]:shadow-none",
-
+        "has-[[disabled]]:opacity-50 before:has-[[disabled]]:bg-zinc-950/5 before:has-[[disabled]]:shadow-none",
         // Invalid state
-        "before:has-[[data-invalid]]:shadow-destructive/10",
+        "before:has-[[data-invalid]]:shadow-red-500/10",
       ])}
     >
       <input
+        {...(invalid ? { "data-invalid": "data-invalid" } : {})}
+        {...props}
         class={clsx([
+          // Date classes
           props.type &&
             dateTypes.includes(props.type) && [
               "[&::-webkit-datetime-edit-fields-wrapper]:p-0",
@@ -52,31 +56,39 @@ export const Input = (props: InputProps) => {
               "[&::-webkit-datetime-edit-millisecond-field]:p-0",
               "[&::-webkit-datetime-edit-meridiem-field]:p-0",
             ],
-
           // Basic layout
-          "relative block w-full appearance-none rounded py-1 px-2 sm:py-1 sm:px-2",
-
+          "relative block w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)]",
           // Typography
-          "text-foreground placeholder:text-muted-foreground/50 text-base/6 sm:text-sm/6",
-
+          "text-base/6 text-zinc-950 placeholder:text-zinc-500 sm:text-sm/6 dark:text-white",
           // Border
-          "border-line hover:border-muted-foreground/30 border",
-
+          "border border-zinc-950/10 data-[hover]:border-zinc-950/20 dark:border-white/10 dark:data-[hover]:border-white/20",
           // Background color
-          "bg-popover",
-
+          "bg-transparent dark:bg-white/5",
           // Hide default focus styles
-          "focus:border-muted-foreground/50 focus:outline-none",
-
+          "focus:outline-none",
           // Invalid state
-          "invalid:border-destructive! invalid:bg-destructive/10",
-
+          "data-[invalid]:border-red-500 data-[invalid]:data-[hover]:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:data-[hover]:dark:border-red-500",
           // Disabled state
-          "disabled:border-muted disabled:opacity-50",
+          "data-[disabled]:border-zinc-950/20 dark:data-[hover]:data-[disabled]:border-white/15 data-[disabled]:dark:border-white/15 data-[disabled]:dark:bg-white/[2.5%]",
         ])}
-        {...props}
-        onChange={(e) => console.log(e)}
       />
     </span>
   );
 };
+
+export function InputGroup({ children }: HTMLArkProps<"span">) {
+  return (
+    <span
+      data-slot="control"
+      class={clsx(
+        "relative isolate block",
+        "[&_input]:has-[[data-slot=icon]:first-child]:pl-10 [&_input]:has-[[data-slot=icon]:last-child]:pr-10 sm:[&_input]:has-[[data-slot=icon]:first-child]:pl-8 sm:[&_input]:has-[[data-slot=icon]:last-child]:pr-8",
+        "[&>[data-slot=icon]]:pointer-events-none [&>[data-slot=icon]]:absolute [&>[data-slot=icon]]:top-3 [&>[data-slot=icon]]:z-10 [&>[data-slot=icon]]:size-5 sm:[&>[data-slot=icon]]:top-2.5 sm:[&>[data-slot=icon]]:size-4",
+        "[&>[data-slot=icon]:first-child]:left-3 sm:[&>[data-slot=icon]:first-child]:left-2.5 [&>[data-slot=icon]:last-child]:right-3 sm:[&>[data-slot=icon]:last-child]:right-2.5",
+        "[&>[data-slot=icon]]:text-zinc-500 dark:[&>[data-slot=icon]]:text-zinc-400",
+      )}
+    >
+      {children}
+    </span>
+  );
+}

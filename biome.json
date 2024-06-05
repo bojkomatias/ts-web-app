@@ -15,7 +15,8 @@
         "useNamingConvention": "error",
         "noNonNullAssertion": "off"
       },
-      "nursery": { "useSortedClasses": "warn" }
+      "nursery": { "useSortedClasses": "warn" },
+      "a11y": { "noSvgWithoutTitle": "off" }
     }
   },
   "formatter": {
@@ -35,7 +36,7 @@
       "bracketSpacing": true,
       "jsxQuoteStyle": "double",
       "quoteProperties": "asNeeded",
-      "semicolons": "always"
+      "semicolons": "asNeeded"
     }
   },
   "json": {

@@ -1,4 +1,4 @@
-import { Input } from "~/ui/input";
+import { Input } from "~/ui/input"
 
 export default function Home() {
 	return (
@@ -8,5 +8,5 @@ export default function Home() {
 			</div>
 			<Input />
 		</>
-	);
+	)
 }

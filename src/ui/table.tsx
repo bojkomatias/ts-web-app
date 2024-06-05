@@ -1,6 +1,6 @@
 import type { HTMLArkProps } from "@ark-ui/solid";
 import { clsx } from "clsx";
-import { Accessor, createSignal, useContext } from "solid-js";
+import { useContext } from "solid-js";
 import { createContext } from "solid-js";
 
 const TableContext = createContext<{
@@ -54,7 +54,10 @@ export function Table(
 
 export function TableHead(props: HTMLArkProps<"thead">) {
   return (
-    <thead class={clsx(props.class, "text-muted-foreground")} {...props} />
+    <thead
+      class={clsx(props.class, "text-zinc-500 dark:text-zinc-400")}
+      {...props}
+    />
   );
 }
 
@@ -94,9 +97,12 @@ export function TableRow(
         class={clsx(
           props.class,
           props.href &&
-            "hover:bg-muted has-[[data-row-link][data-focus]]:outline has-[[data-row-link][data-focus]]:outline-2 has-[[data-row-link][data-focus]]:-outline-offset-2 has-[[data-row-link][data-focus]]:outline-blue-500",
-          striped && "even:bg-popover/20 hover:bg-popover",
-          !striped && "hover:bg-popover",
+            "has-[[data-row-link][data-focus]]:outline has-[[data-row-link][data-focus]]:outline-2 has-[[data-row-link][data-focus]]:-outline-offset-2 has-[[data-row-link][data-focus]]:outline-blue-500 dark:focus-within:bg-white/[2.5%]",
+          striped && "even:bg-zinc-950/[2.5%] dark:even:bg-white/[2.5%]",
+          props.href && striped && "hover:bg-zinc-950/5 dark:hover:bg-white/5",
+          props.href &&
+            !striped &&
+            "hover:bg-zinc-950/[2.5%] dark:hover:bg-white/[2.5%]",
         )}
       >
         {props.children}
@@ -113,9 +119,10 @@ export function TableHeader(props: HTMLArkProps<"th">) {
       {...props}
       class={clsx(
         props.class,
-        "border-b-line border-b py-2 px-4 font-medium first:pl-4 last:pr-4",
-        grid && "border-l-line border-l first:border-l-0",
-        !bleed && "sm:first:pl-2 sm:last:pr-2",
+        "border-b border-b-zinc-950/10 px-4 py-2 font-medium first:pl-[var(--gutter,theme(spacing.2))] last:pr-[var(--gutter,theme(spacing.2))] dark:border-b-white/10",
+        grid &&
+          "border-l border-l-zinc-950/5 first:border-l-0 dark:border-l-white/5",
+        !bleed && "sm:first:pl-1 sm:last:pr-1",
       )}
     />
   );
@@ -130,11 +137,12 @@ export function TableCell(props: HTMLArkProps<"td">) {
       {...props}
       class={clsx(
         props.class,
-        "relative px-2 first:pl-4 last:pr-4",
-        !striped && "border-popover border-b",
-        grid && "border-l-popover border-l first:border-l-0",
+        "relative px-4 first:pl-[var(--gutter,theme(spacing.2))] last:pr-[var(--gutter,theme(spacing.2))]",
+        !striped && "border-b border-zinc-950/5 dark:border-white/5",
+        grid &&
+          "border-l border-l-zinc-950/5 first:border-l-0 dark:border-l-white/5",
         dense ? "py-2.5" : "py-4",
-        !bleed && "sm:first:pl-2 sm:last:pr-2",
+        !bleed && "sm:first:pl-1 sm:last:pr-1",
       )}
     >
       {href && (
@@ -143,7 +151,7 @@ export function TableCell(props: HTMLArkProps<"td">) {
           href={href}
           target={target}
           aria-label={title}
-          class="absolute inset-1 focus:outline-none"
+          class="absolute inset-0 focus:outline-none"
         >
           SaPE
         </a>

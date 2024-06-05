@@ -1,4 +1,4 @@
-import { action, cache } from "@solidjs/router";
+import { action, cache } from "@solidjs/router"
 
 export const users = [
 	{
@@ -6,29 +6,29 @@ export const users = [
 		name: "Matias Bojko",
 		cuit: "20323140324",
 	},
-];
+]
 
 export const getUsers = cache(async () => {
-	"use server";
+	"use server"
 
-	return users;
-}, "users");
+	return users
+}, "users")
 
 export const createUser = action(
 	async ({
 		name,
 		cuit,
 	}: {
-		name: string;
-		cuit: string;
+		name: string
+		cuit: string
 	}) => {
-		"use server";
-		await new Promise((resolve) => setTimeout(resolve, 4000));
+		"use server"
+		await new Promise((resolve) => setTimeout(resolve, 4000))
 		users.push({
 			name,
 			cuit,
 			id: 23,
-		});
-		console.log("user added");
+		})
+		console.log("user added")
 	},
-);
+)
