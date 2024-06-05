@@ -2,39 +2,28 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Theme contemplates only one media mode, replicate same structure for adding new ones */
-/**
-@theme {
-  --font-family-display: "Satoshi", "sans-serif";
-
-
-  --color-background: oklch(15.98% 0.007 214.54);
-  --color-card: oklch(18.33% 0.008 229.36);
-  --color-popover: oklch(20.08% 0.006 214.45);
-  --color-muted: oklch(23.93% 0.008 223.81);
-
-
-  --color-foreground: oklch(96.97% 0.002 247.84);
-  --color-foreground-dimmed: oklch(92.37% 0.003 228.79);
-  --color-muted-foreground: oklch(76.49% 0.004 236.52);
-
-
-  --color-accent: oklch(90.59% 0.1535717689544648 194.78309040830206);
-  --color-accent-foreground: oklch(15.98% 0.007 214.54);
-
-
-  --color-destructive: oklch(54.46% 0.212 27.18);
-  --color-destructive-foreground: oklch(96.97% 0.002 247.84);
-
-
-  --color-line: oklch(27.17% 0.009 219.82);
-
-
-  --radius-xs: 0.1rem;
-  --radius-sm: 0.2rem;
-  --radius-md: 0.3rem;
-  --radius-lg: 0.5rem;
-  --radius-xl: 0.7rem;
-  --radius-2xl: 1rem;
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
-*/
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+[data-scope="dialog"][data-part="content"][data-state="open"] {
+  animation: fadeIn 300ms ease-out;
+}
+
+[data-scope="dialog"][data-part="content"][data-state="closed"] {
+  animation: fadeOut 300ms ease-in;
+}
