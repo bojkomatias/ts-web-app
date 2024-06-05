@@ -178,7 +178,7 @@ export const Button = ({
       ? styles.outline
       : plain
         ? styles.plain
-        : clsx(styles.solid, styles.colors[color ?? "dark/zinc"]),
+        : clsx(styles.solid, styles.colors[color ?? "light"]),
   );
 
   return "href" in props ? (

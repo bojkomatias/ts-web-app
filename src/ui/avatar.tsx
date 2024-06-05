@@ -1,9 +1,15 @@
-import type { HTMLArkProps } from "@ark-ui/solid";
+import {
+  AvatarFallback,
+  AvatarImage,
+  AvatarRoot,
+  AvatarRootProps,
+  type HTMLArkProps,
+} from "@ark-ui/solid";
 import clsx from "clsx";
 import { TouchTarget } from "./button";
 
 type AvatarProps = {
-  src?: string | null;
+  src?: string;
   square?: boolean;
   initials?: string;
   alt?: string;
@@ -11,14 +17,14 @@ type AvatarProps = {
 };
 
 export function Avatar({
-  src = null,
+  src,
   square = false,
   initials,
   alt = "",
   ...props
-}: AvatarProps & HTMLArkProps<"span">) {
+}: AvatarProps & AvatarRootProps) {
   return (
-    <span
+    <AvatarRoot
       data-slot="avatar"
       {...props}
       class={clsx(
@@ -32,7 +38,7 @@ export function Avatar({
           : "rounded-full *:rounded-full",
       )}
     >
-      {initials && (
+      <AvatarFallback>
         <svg
           class="size-full select-none fill-current p-[5%] text-[48px] font-medium uppercase"
           viewBox="0 0 100 100"
@@ -43,9 +49,9 @@ export function Avatar({
             {initials}
           </text>
         </svg>
-      )}
-      {src && <img class="size-full" src={src} alt={alt} />}
-    </span>
+      </AvatarFallback>
+      <AvatarImage class="size-full" src={src} alt={alt} />
+    </AvatarRoot>
   );
 }
 
