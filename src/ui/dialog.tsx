@@ -4,13 +4,10 @@ import {
 	type DialogDescriptionProps,
 	type DialogRootProps,
 	type DialogTitleProps,
-	type HTMLArkProps,
 } from "@ark-ui/solid"
 import { clsx } from "clsx"
-import { X } from "lucide-solid"
 import type { JSX } from "solid-js"
 import { Portal } from "solid-js/web"
-import { Button } from "./button"
 
 const sizes = {
 	xs: "sm:max-w-xs",
@@ -97,11 +94,11 @@ export function DialogDescription(props: DialogDescriptionProps) {
 	)
 }
 
-export function DialogBody(props: HTMLArkProps<"div">) {
+export function DialogBody(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	return <div {...props} class={clsx(props.class, "mt-6")} />
 }
 
-export function DialogActions(props: HTMLArkProps<"div">) {
+export function DialogActions(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div
 			{...props}

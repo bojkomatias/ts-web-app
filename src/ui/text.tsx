@@ -1,7 +1,8 @@
 import type { HTMLArkProps } from "@ark-ui/solid"
 import { clsx } from "clsx"
+import type { JSX } from "solid-js"
 
-export function Text(props: HTMLArkProps<"p">) {
+export function Text(props: JSX.HTMLAttributes<HTMLParagraphElement>) {
 	return (
 		<p
 			{...props}
@@ -14,7 +15,7 @@ export function Text(props: HTMLArkProps<"p">) {
 	)
 }
 
-export function TextLink(props: HTMLArkProps<"a">) {
+export function TextLink(props: JSX.HTMLAttributes<HTMLAnchorElement>) {
 	return (
 		<a
 			{...props}
@@ -26,7 +27,7 @@ export function TextLink(props: HTMLArkProps<"a">) {
 	)
 }
 
-export function Strong(props: HTMLArkProps<"strong">) {
+export function Strong(props: JSX.HTMLAttributes<HTMLElement>) {
 	return (
 		<strong
 			{...props}
@@ -35,7 +36,7 @@ export function Strong(props: HTMLArkProps<"strong">) {
 	)
 }
 
-export function Code(props: HTMLArkProps<"code">) {
+export function Code(props: JSX.HTMLAttributes<HTMLElement>) {
 	return (
 		<code
 			{...props}

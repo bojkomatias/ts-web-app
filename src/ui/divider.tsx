@@ -1,10 +1,10 @@
-import type { HTMLArkProps } from "@ark-ui/solid"
 import clsx from "clsx"
+import type { JSX } from "solid-js"
 
 export function Divider({
 	soft = false,
 	...props
-}: { soft?: boolean } & HTMLArkProps<"hr">) {
+}: { soft?: boolean } & JSX.HTMLAttributes<HTMLHRElement>) {
 	return (
 		<hr
 			{...props}

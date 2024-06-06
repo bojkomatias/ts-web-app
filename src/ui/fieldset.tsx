@@ -1,10 +1,10 @@
-import type { HTMLArkProps } from "@ark-ui/solid"
 import { clsx } from "clsx"
+import type { JSX } from "solid-js"
 
 export function Fieldset(
 	props: {
 		disabled?: boolean
-	} & HTMLArkProps<"fieldset">,
+	} & JSX.HTMLAttributes<HTMLFieldSetElement>,
 ) {
 	return (
 		<fieldset
@@ -17,7 +17,7 @@ export function Fieldset(
 	)
 }
 
-export function Legend(props: HTMLArkProps<"legend">) {
+export function Legend(props: JSX.HTMLAttributes<HTMLLegendElement>) {
 	return (
 		<legend
 			{...props}
@@ -29,7 +29,7 @@ export function Legend(props: HTMLArkProps<"legend">) {
 		/>
 	)
 }
-export function FieldGroup(props: HTMLArkProps<"div">) {
+export function FieldGroup(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div
 			{...props}
@@ -39,7 +39,7 @@ export function FieldGroup(props: HTMLArkProps<"div">) {
 	)
 }
 
-export function Field(props: HTMLArkProps<"div">) {
+export function Field(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div
 			class={clsx(
@@ -60,7 +60,7 @@ export function Label({
 	...props
 }: {
 	className?: string
-} & HTMLArkProps<"label">) {
+} & JSX.HTMLAttributes<HTMLLabelElement>) {
 	return (
 		<label
 			{...props}
@@ -79,7 +79,7 @@ export function Description({
 }: {
 	className?: string
 	disabled?: boolean
-} & HTMLArkProps<"div">) {
+} & JSX.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div
 			{...props}
@@ -95,7 +95,7 @@ export function Description({
 export function ErrorMesssage(
 	props: {
 		className?: string
-	} & HTMLArkProps<"div">,
+	} & JSX.HTMLAttributes<HTMLDivElement>,
 ) {
 	return (
 		<div

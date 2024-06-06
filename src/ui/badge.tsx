@@ -1,4 +1,3 @@
-import type { HTMLArkProps } from "@ark-ui/solid"
 import clsx from "clsx"
 import type { JSX } from "solid-js"
 import { type ButtonProps, TouchTarget } from "./button"
@@ -40,7 +39,7 @@ type BadgeProps = {
 export function Badge({
 	color = "zinc",
 	...props
-}: BadgeProps & HTMLArkProps<"span">) {
+}: BadgeProps & JSX.HTMLAttributes<HTMLSpanElement>) {
 	return (
 		<span
 			{...props}

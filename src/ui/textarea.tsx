@@ -1,10 +1,11 @@
 import type { HTMLArkProps } from "@ark-ui/solid"
 import { clsx } from "clsx"
+import type { JSX } from "solid-js"
 
 export const Textarea = ({
 	resizable = true,
 	...props
-}: { resizable?: boolean } & HTMLArkProps<"textarea">) => {
+}: { resizable?: boolean } & JSX.HTMLAttributes<HTMLTextAreaElement>) => {
 	return (
 		<span
 			data-slot="control"

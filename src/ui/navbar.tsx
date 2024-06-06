@@ -1,9 +1,8 @@
-import type { HTMLArkProps } from "@ark-ui/solid"
 import clsx from "clsx"
-import type { JSXElement } from "solid-js"
+import type { JSX } from "solid-js"
 import { TouchTarget } from "./button"
 
-export function Navbar(props: HTMLArkProps<"nav">) {
+export function Navbar(props: JSX.HTMLAttributes<HTMLElement>) {
 	return (
 		<nav
 			{...props}
@@ -12,7 +11,7 @@ export function Navbar(props: HTMLArkProps<"nav">) {
 	)
 }
 
-export function NavbarDivider(props: HTMLArkProps<"div">) {
+export function NavbarDivider(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div
 			aria-hidden="true"
@@ -22,7 +21,7 @@ export function NavbarDivider(props: HTMLArkProps<"div">) {
 	)
 }
 
-export function NavbarSection(props: HTMLArkProps<"div">) {
+export function NavbarSection(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div>
 			<div {...props} class={clsx(props.class, "flex items-center gap-3")} />
@@ -30,7 +29,7 @@ export function NavbarSection(props: HTMLArkProps<"div">) {
 	)
 }
 
-export function NavbarSpacer(props: HTMLArkProps<"div">) {
+export function NavbarSpacer(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div
 			aria-hidden="true"
@@ -44,9 +43,9 @@ export const NavbarItem = ({
 	current,
 	children,
 	...props
-}: { current?: boolean; className?: string; children: JSXElement } & (
-	| HTMLArkProps<"button">
-	| HTMLArkProps<"a">
+}: { current?: boolean; className?: string; children: JSX.Element } & (
+	| JSX.HTMLAttributes<HTMLButtonElement>
+	| JSX.HTMLAttributes<HTMLAnchorElement>
 )) => {
 	const classes = clsx(
 		// Base
@@ -93,6 +92,6 @@ export const NavbarItem = ({
 	)
 }
 
-export function NavbarLabel(props: HTMLArkProps<"span">) {
+export function NavbarLabel(props: JSX.HTMLAttributes<HTMLSpanElement>) {
 	return <span {...props} class={clsx(props.class, "truncate")} />
 }

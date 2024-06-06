@@ -1,5 +1,5 @@
-import type { HTMLArkProps } from "@ark-ui/solid"
 import { clsx } from "clsx"
+import type { JSX } from "solid-js"
 
 const dateTypes = ["date", "datetime-local", "month", "time", "week"]
 type DateType = (typeof dateTypes)[number]
@@ -14,7 +14,7 @@ type InputProps = {
 		| "text"
 		| "url"
 		| DateType
-} & { invalid?: boolean } & HTMLArkProps<"input">
+} & { invalid?: boolean } & JSX.HTMLAttributes<HTMLInputElement>
 
 export const Input = ({ invalid, ...props }: InputProps) => {
 	return (
@@ -76,7 +76,7 @@ export const Input = ({ invalid, ...props }: InputProps) => {
 	)
 }
 
-export function InputGroup({ children }: HTMLArkProps<"span">) {
+export function InputGroup({ children }: JSX.HTMLAttributes<HTMLSpanElement>) {
 	return (
 		<span
 			data-slot="control"

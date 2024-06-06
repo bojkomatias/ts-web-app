@@ -3,7 +3,7 @@
 ### Todo
 
 - [] Define project architecture
-- [] Configure theme
+- [x] Configure theme
 - [] Configure linter + formatter
 - [] Connect ORM + DB
 - [] Setup query layer

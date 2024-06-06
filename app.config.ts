@@ -3,8 +3,8 @@ import { defineConfig } from "@solidjs/start/config";
 
 export default defineConfig({
   ssr: false,
-  vite: {
-    // ssr: { external: ["@prisma/client"] },
-    // plugins: [tailwindcss()],
-  },
+  // vite: {
+  //   // ssr: { external: ["@prisma/client"] },
+  //   // plugins: [tailwindcss()],
+  // },
 });

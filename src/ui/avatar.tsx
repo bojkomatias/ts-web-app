@@ -3,9 +3,9 @@ import {
 	AvatarImage,
 	AvatarRoot,
 	type AvatarRootProps,
-	type HTMLArkProps,
 } from "@ark-ui/solid"
 import clsx from "clsx"
+import type { JSX } from "solid-js"
 import { TouchTarget } from "./button"
 
 type AvatarProps = {
@@ -63,8 +63,8 @@ export const AvatarButton = ({
 	...props
 }: AvatarProps &
 	(
-		| Omit<HTMLArkProps<"button">, "class">
-		| Omit<HTMLArkProps<"a">, "class">
+		| Omit<JSX.HTMLAttributes<HTMLButtonElement>, "class">
+		| Omit<JSX.HTMLAttributes<HTMLAnchorElement>, "class">
 	)) => {
 	const classes = clsx(
 		props.class,

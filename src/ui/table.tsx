@@ -1,6 +1,6 @@
 import type { HTMLArkProps } from "@ark-ui/solid"
 import { clsx } from "clsx"
-import { useContext } from "solid-js"
+import { type JSX, useContext } from "solid-js"
 import { createContext } from "solid-js"
 
 const TableContext = createContext<{
@@ -21,7 +21,7 @@ export function Table(
 		dense?: boolean
 		grid?: boolean
 		striped?: boolean
-	} & HTMLArkProps<"div">,
+	} & JSX.HTMLAttributes<HTMLDivElement>,
 ) {
 	const value = {
 		striped: props.striped || false,
@@ -52,7 +52,7 @@ export function Table(
 	)
 }
 
-export function TableHead(props: HTMLArkProps<"thead">) {
+export function TableHead(props: JSX.HTMLAttributes<HTMLTableSectionElement>) {
 	return (
 		<thead
 			class={clsx(props.class, "text-zinc-500 dark:text-zinc-400")}
@@ -61,7 +61,7 @@ export function TableHead(props: HTMLArkProps<"thead">) {
 	)
 }
 
-export function TableBody(props: HTMLArkProps<"tbody">) {
+export function TableBody(props: JSX.HTMLAttributes<HTMLTableSectionElement>) {
 	return <tbody {...props} />
 }
 
@@ -80,7 +80,7 @@ export function TableRow(
 		href?: string
 		target?: string
 		title?: string
-	} & HTMLArkProps<"tr">,
+	} & JSX.HTMLAttributes<HTMLTableRowElement>,
 ) {
 	const { striped } = useContext(TableContext)
 
@@ -111,7 +111,7 @@ export function TableRow(
 	)
 }
 
-export function TableHeader(props: HTMLArkProps<"th">) {
+export function TableHeader(props: JSX.HTMLAttributes<HTMLTableCellElement>) {
 	const { bleed, grid } = useContext(TableContext)
 
 	return (
@@ -128,7 +128,7 @@ export function TableHeader(props: HTMLArkProps<"th">) {
 	)
 }
 
-export function TableCell(props: HTMLArkProps<"td">) {
+export function TableCell(props: JSX.HTMLAttributes<HTMLTableCellElement>) {
 	const { bleed, dense, grid, striped } = useContext(TableContext)
 	const { href, target, title } = useContext(TableRowContext)
 
