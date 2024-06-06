@@ -1,12 +1,23 @@
-import { Input } from "~/ui/input"
+import { ChevronDownIcon } from "lucide-solid"
+import {
+	Dropdown,
+	DropdownButton,
+	DropdownItem,
+	DropdownMenu,
+} from "~/ui/dropdown"
 
-export default function Home() {
+export default function Index() {
 	return (
-		<>
-			<div class="m-4 flex bg-gray-500 py-2 pl-2 text-gray-200">
-				Hello there!
-			</div>
-			<Input />
-		</>
+		<Dropdown>
+			<DropdownButton outline>
+				Options
+				<ChevronDownIcon />
+			</DropdownButton>
+			<DropdownMenu>
+				<DropdownItem href="/users/1">View</DropdownItem>
+				<DropdownItem href="/users/1/edit">Edit</DropdownItem>
+				<DropdownItem onClick={() => null}>Delete</DropdownItem>
+			</DropdownMenu>
+		</Dropdown>
 	)
 }

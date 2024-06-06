@@ -16,7 +16,8 @@
         "noNonNullAssertion": "off"
       },
       "nursery": { "useSortedClasses": "warn" },
-      "a11y": { "noSvgWithoutTitle": "off" }
+      "a11y": { "noSvgWithoutTitle": "off" },
+      "correctness": { "useJsxKeyInIterable": "off" }
     }
   },
   "formatter": {
