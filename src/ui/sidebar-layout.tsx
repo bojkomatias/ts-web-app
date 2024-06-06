@@ -48,45 +48,45 @@ import { NavbarItem } from "./navbar"
 // }
 
 export function SidebarLayout({
-  navbar,
-  sidebar,
-  children,
+	navbar,
+	sidebar,
+	children,
 }: {
-  children: JSX.Element
-  navbar: JSX.Element
-  sidebar: JSX.Element
+	children: JSX.Element
+	navbar: JSX.Element
+	sidebar: JSX.Element
 }) {
-  const [showSidebar, setShowSidebar] = createSignal(false)
+	const [showSidebar, setShowSidebar] = createSignal(false)
 
-  return (
-    <div class="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col dark:bg-zinc-900 dark:lg:bg-zinc-950 lg:bg-zinc-100">
-      {/* Sidebar on desktop */}
-      <div class="fixed inset-y-0 left-0 w-64 max-lg:hidden">{sidebar}</div>
+	return (
+		<div class="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col dark:bg-zinc-900 dark:lg:bg-zinc-950 lg:bg-zinc-100">
+			{/* Sidebar on desktop */}
+			<div class="fixed inset-y-0 left-0 w-64 max-lg:hidden">{sidebar}</div>
 
-      {/* Sidebar on mobile */}
-      {/* <MobileSidebar open={showSidebar} close={() => setShowSidebar(false)}>
+			{/* Sidebar on mobile */}
+			{/* <MobileSidebar open={showSidebar} close={() => setShowSidebar(false)}>
         {sidebar}
       </MobileSidebar> */}
 
-      {/* Navbar on mobile */}
-      <header class="flex items-center px-4 lg:hidden">
-        <div class="py-2.5">
-          <NavbarItem
-            onClick={() => setShowSidebar(true)}
-            aria-label="Open navigation"
-          >
-            <SidebarIcon data-slot="icon" />
-          </NavbarItem>
-        </div>
-        <div class="min-w-0 flex-1">{navbar}</div>
-      </header>
+			{/* Navbar on mobile */}
+			<header class="flex items-center px-4 lg:hidden">
+				<div class="py-2.5">
+					<NavbarItem
+						onClick={() => setShowSidebar(true)}
+						aria-label="Open navigation"
+					>
+						<SidebarIcon data-slot="icon" />
+					</NavbarItem>
+				</div>
+				<div class="min-w-0 flex-1">{navbar}</div>
+			</header>
 
-      {/* Content */}
-      <main class="flex flex-1 flex-col pb-2 lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-64">
-        <div class="grow p-6 lg:rounded-lg dark:lg:bg-zinc-900 lg:bg-white lg:p-10 lg:shadow-sm dark:lg:ring-white/10 lg:ring-1 lg:ring-zinc-950/5">
-          <div class="mx-auto max-w-6xl">{children}</div>
-        </div>
-      </main>
-    </div>
-  )
+			{/* Content */}
+			<main class="flex flex-1 flex-col pb-2 lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-64">
+				<div class="grow p-6 lg:rounded-lg dark:lg:bg-zinc-900 lg:bg-white lg:p-10 lg:shadow-sm dark:lg:ring-white/10 lg:ring-1 lg:ring-zinc-950/5">
+					<div class="mx-auto max-w-6xl">{children}</div>
+				</div>
+			</main>
+		</div>
+	)
 }

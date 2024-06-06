@@ -17,7 +17,7 @@ import {
   MenuTrigger,
 } from "@ark-ui/solid"
 import type { JSX } from "solid-js"
-import { Button, type ButtonProps } from "./button"
+import { AnchorOrButton, Button, type ButtonProps } from "./button"
 
 export function Dropdown(props: MenuRootProps) {
   return (
@@ -70,10 +70,7 @@ export function DropdownMenu(props: MenuContentProps) {
 export function DropdownItem({
   value = "",
   ...props
-}: (
-  | JSX.HTMLAttributes<HTMLAnchorElement>
-  | JSX.HTMLAttributes<HTMLButtonElement>
-) & {
+}: AnchorOrButton & {
   value?: string
 } & Omit<MenuItemProps, "value">) {
   const classes = clsx(
@@ -102,7 +99,6 @@ export function DropdownItem({
       {"href" in props ? (
         <a {...props} class={classes} />
       ) : (
-        // @ts-ignore
         <button type="button" {...props} class={classes} />
       )}
     </MenuItem>

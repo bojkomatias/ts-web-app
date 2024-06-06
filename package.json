@@ -18,17 +18,12 @@
   "dependencies": {
     "@ark-ui/solid": "^3.2.1",
     "@kobalte/core": "^0.13.3",
-    "@prisma/client": "^5.15.0",
-    "@solid-primitives/scheduled": "^1.4.3",
     "@solidjs/meta": "^0.29.4",
     "@solidjs/router": "^0.13.5",
     "@solidjs/start": "1.0.0-rc.1",
     "@tanstack/solid-table": "^8.17.3",
-    "@zag-js/menu": "^0.54.0",
-    "@zag-js/solid": "^0.54.0",
     "clsx": "^2.1.1",
-    "lucide-solid": "^0.378.0",
-    "prisma": "^5.15.0",
+    "lucide-solid": "^0.390.0",
     "solid-js": "^1.8.17",
     "vinxi": "^0.3.11"
   },

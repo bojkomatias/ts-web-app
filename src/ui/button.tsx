@@ -1,6 +1,5 @@
 import { clsx } from "clsx"
-import { JSX } from "solid-js";
-
+import type { JSX } from "solid-js"
 
 const styles = {
   base: [
@@ -157,15 +156,16 @@ const styles = {
   },
 }
 
+export type AnchorOrButton =
+  | ({ href: string } & JSX.HTMLAttributes<HTMLAnchorElement>)
+  | ({ href?: never } & JSX.HTMLAttributes<HTMLButtonElement>)
+
 export type ButtonProps = (
   | { color?: keyof typeof styles.colors; outline?: never; plain?: never }
   | { color?: never; outline: true; plain?: never }
   | { color?: never; outline?: never; plain: true }
 ) &
-  (
-    | JSX.HTMLAttributes<HTMLAnchorElement>
-    | JSX.HTMLAttributes<HTMLButtonElement>
-  )
+  AnchorOrButton
 
 export const Button = ({
   color,
@@ -185,11 +185,10 @@ export const Button = ({
   )
 
   return "href" in props ? (
-    <a {...props} class={classes}>
+    props.href && <a {...props} class={classes}>
       <TouchTarget>{children}</TouchTarget>
     </a>
   ) : (
-    // @ts-ignore
     <button {...props} class={clsx(classes, "cursor-default")}>
       <TouchTarget>{children}</TouchTarget>
     </button>
