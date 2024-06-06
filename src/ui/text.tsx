@@ -20,7 +20,7 @@ export function TextLink(props: HTMLArkProps<"a">) {
 			{...props}
 			class={clsx(
 				props.class,
-				"text-zinc-950 underline decoration-zinc-950/50 dark:text-white dark:data-[hover]:decoration-white dark:decoration-white/50 data-[hover]:decoration-zinc-950",
+				"text-zinc-950 underline decoration-zinc-950/50 dark:text-white dark:decoration-white/50hover:decoration-zinc-950 dark:hover:decoration-white",
 			)}
 		/>
 	)

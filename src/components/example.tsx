@@ -21,7 +21,7 @@ export const Example = () => {
 			<DropdownButton asChild>
 				<button
 					type="button"
-					class="flex w-48 items-center gap-3 rounded-xl border border-transparent p-1 dark:data-[active]:border-zinc-700 dark:data-[hover]:border-zinc-700 data-[active]:border-zinc-200 data-[hover]:border-zinc-200"
+					class="flex w-48 items-center gap-3 rounded-xl border border-transparent p-1 active:border-zinc-200hover:border-zinc-200 dark:active:border-zinc-700 dark:hover:border-zinc-700"
 					aria-label="Account options"
 				>
 					<Avatar

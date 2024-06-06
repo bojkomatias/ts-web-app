@@ -45,7 +45,7 @@ export const columns = [
 		id: "actions",
 		cell: (props) => (
 			<div>
-				<Button ghost>
+				<Button plain>
 					<Text />
 				</Button>
 			</div>

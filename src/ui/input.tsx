@@ -61,15 +61,15 @@ export const Input = ({ invalid, ...props }: InputProps) => {
 					// Typography
 					"text-base/6 text-zinc-950 dark:text-white placeholder:text-zinc-500 sm:text-sm/6",
 					// Border
-					"border border-zinc-950/10 dark:border-white/10 dark:data-[hover]:border-white/20 data-[hover]:border-zinc-950/20",
+					"border border-zinc-950/10 dark:border-white/10 dark:hover:border-white/20hover:border-zinc-950/20",
 					// Background color
 					"bg-transparent dark:bg-white/5",
 					// Hide default focus styles
 					"focus:outline-none",
 					// Invalid state
-					"data-[invalid]:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:data-[hover]:border-red-500 data-[invalid]:data-[hover]:dark:border-red-500",
+					"data-[invalid]:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:hover:border-red-500 data-[invalid]:hover:dark:border-red-500",
 					// Disabled state
-					"dark:data-[hover]:data-[disabled]:border-white/15 data-[disabled]:border-zinc-950/20 data-[disabled]:dark:border-white/15 data-[disabled]:dark:bg-white/[2.5%]",
+					"dark:hover:data-[disabled]:border-white/15 data-[disabled]:border-zinc-950/20 data-[disabled]:dark:border-white/15 data-[disabled]:dark:bg-white/[2.5%]",
 				])}
 			/>
 		</span>
