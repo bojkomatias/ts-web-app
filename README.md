@@ -2,10 +2,10 @@
 
 ### Todo
 
-- [] Define project architecture
+- [x] Define project architecture
 - [x] Configure theme
-- [] Configure linter + formatter
-- [] Connect ORM + DB
+- [x] Configure linter + formatter
+- [x] Connect ORM + DB
 - [] Setup query layer
 - [] Setup form management
 - [] Validations

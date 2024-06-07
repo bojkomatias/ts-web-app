@@ -182,10 +182,10 @@ export default function AppLayout(props: RouteSectionProps) {
 								<span class="flex min-w-0 flex-grow items-center gap-3">
 									<Avatar src="/matu.jpeg" class="size-8" square alt="" />
 									<span class="min-w-0">
-										<span class="block truncate font-medium text-sm/5 text-zinc-950 dark:text-white">
+										<span class="block truncate font-medium text-default-950 text-sm/5 dark:text-white">
 											Erica
 										</span>
-										<span class="block truncate font-normal text-xs/5 text-zinc-500 dark:text-zinc-400">
+										<span class="block truncate font-normal text-default-500 text-xs/5 dark:text-default-400">
 											erica@example.com
 										</span>
 									</span>

@@ -15,10 +15,8 @@ import { Input } from "~/ui/input"
 export default function Index() {
 	const [open, setIsOpen] = createSignal(false)
 	return (
-		<div class="flex h-screen items-center justify-center gap-4">
-			<Button href="/app" color="light">
-				Go to App
-			</Button>
+		<div class="flex h-screen items-center justify-center gap-4 bg-default-500 dark:bg-default-500">
+			<Button href="/app">Go to App</Button>
 			<Checkbox />
 			<Button onClick={() => setIsOpen(true)}>Refund payment</Button>
 			<Dialog open={open()} onOpenChange={setIsOpen}>

@@ -38,7 +38,7 @@ export default function AppPage() {
 						<TableRow>
 							<TableCell class="font-medium">{user.name}</TableCell>
 							<TableCell>{user.email}</TableCell>
-							<TableCell class="text-zinc-500">{user.access}</TableCell>
+							<TableCell class="text-default-500">{user.access}</TableCell>
 						</TableRow>
 					))}
 				</TableBody>

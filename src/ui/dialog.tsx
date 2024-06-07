@@ -25,7 +25,7 @@ export function Dialog(
 			<KobalteDialog.Portal>
 				<KobalteDialog.Overlay
 					class={clsx(
-						"pointer-events-none fixed inset-0 flex w-screen justify-center overflow-y-auto bg-zinc-950/25 px-2 py-2 dark:bg-zinc-950/50 lg:px-8 sm:px-6 lg:py-16 sm:py-8 focus:outline-0",
+						"pointer-events-none fixed inset-0 flex w-screen justify-center overflow-y-auto bg-default-950/25 px-2 py-2 dark:bg-default-950/50 lg:px-8 sm:px-6 lg:py-16 sm:py-8 focus:outline-0",
 					)}
 				/>
 				<div class="fixed inset-0 w-screen overflow-y-auto pt-6 sm:pt-0">
@@ -55,7 +55,7 @@ export const DialogContent = ({
 			class={clsx(
 				props.class,
 				sizes[size],
-				"relative row-start-2 w-full min-w-0 rounded-t-3xl bg-white p-[--gutter] shadow-lg ring-1 ring-zinc-950/10 [--gutter:theme(spacing.8)] sm:mb-auto sm:rounded-2xl dark:bg-zinc-900 forced-colors:outline dark:ring-white/10",
+				"relative row-start-2 w-full min-w-0 rounded-t-3xl bg-white p-[--gutter] shadow-lg ring-1 ring-default-950/10 [--gutter:theme(spacing.8)] sm:mb-auto sm:rounded-2xl dark:bg-default-900 forced-colors:outline dark:ring-white/10",
 				// "h-[calc(100svh-2rem)]",
 			)}
 		>
@@ -70,7 +70,7 @@ export function DialogTitle(props: JSX.HTMLAttributes<HTMLHeadingElement>) {
 			{...props}
 			class={clsx(
 				props.class,
-				"text-balance font-semibold text-lg/6 text-zinc-950 dark:text-white sm:text-base/6",
+				"text-balance font-semibold text-default-950 text-lg/6 dark:text-white sm:text-base/6",
 			)}
 		/>
 	)
@@ -82,7 +82,7 @@ export function DialogDescription(props: JSX.HTMLAttributes<HTMLDivElement>) {
 			{...props}
 			class={clsx(
 				props.class,
-				"mt-2 text-pretty text-zinc-800 dark:text-zinc-200",
+				"mt-2 text-pretty text-default-800 dark:text-default-200",
 			)}
 		/>
 	)

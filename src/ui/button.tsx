@@ -40,15 +40,15 @@ export const styles = {
 	],
 	outline: [
 		// Base
-		"border-zinc-950/10 text-zinc-950 active:bg-zinc-950/[2.5%] hover:bg-zinc-950/[2.5%] data-[expanded]:bg-zinc-950/[2.5%]",
+		"border-default-950/10 text-default-950 active:bg-default-950/[2.5%] hover:bg-default-950/[2.5%] data-[expanded]:bg-default-950/[2.5%]",
 		// Dark mode
-		"dark:border-white/15 dark:text-white dark:[--btn-bg:transparent] dark:active:bg-white/5 dark:hover:bg-white/5 dark:data-[expanded]:bg-zinc-950/[2.5%]",
+		"dark:border-white/15 dark:text-white dark:[--btn-bg:transparent] dark:active:bg-white/5 dark:hover:bg-white/5 dark:data-[expanded]:bg-default-950/[2.5%]",
 		// Icon
 		"[--btn-icon:theme(colors.zinc.500)] active:[--btn-icon:theme(colors.zinc.700)] hover:[--btn-icon:theme(colors.zinc.700)] dark:active:[--btn-icon:theme(colors.zinc.400)] dark:hover:[--btn-icon:theme(colors.zinc.400)]",
 	],
 	plain: [
 		// Base
-		"border-transparent text-zinc-950 active:bg-zinc-950/5 hover:bg-zinc-950/5 data-[expanded]:bg-zinc-950/5",
+		"border-transparent text-default-950 active:bg-default-950/5 hover:bg-default-950/5 data-[expanded]:bg-default-950/5",
 		// Dark mode
 		"dark:text-white dark:active:bg-white/10 dark:hover:bg-white/10 dark:data-[expanded]:bg-white/10",
 		// Icon
@@ -61,13 +61,13 @@ export const styles = {
 			"[--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.300)] hover:[--btn-icon:theme(colors.zinc.300)]",
 		],
 		light: [
-			"text-zinc-950 [--btn-bg:white] [--btn-border:theme(colors.zinc.950/10%)] [--btn-hover-overlay:theme(colors.zinc.950/2.5%)] active:[--btn-border:theme(colors.zinc.950/15%)] hover:[--btn-border:theme(colors.zinc.950/15%)]",
+			"text-default-950 [--btn-bg:white] [--btn-border:theme(colors.zinc.950/10%)] [--btn-hover-overlay:theme(colors.zinc.950/2.5%)] active:[--btn-border:theme(colors.zinc.950/15%)] hover:[--btn-border:theme(colors.zinc.950/15%)]",
 			"dark:text-white dark:[--btn-hover-overlay:theme(colors.white/5%)] dark:[--btn-bg:theme(colors.zinc.800)]",
 			"[--btn-icon:theme(colors.zinc.500)] active:[--btn-icon:theme(colors.zinc.700)] hover:[--btn-icon:theme(colors.zinc.700)] dark:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.400)] dark:hover:[--btn-icon:theme(colors.zinc.400)]",
 		],
 		"dark/white": [
 			"text-white [--btn-bg:theme(colors.zinc.900)] [--btn-border:theme(colors.zinc.950/90%)] [--btn-hover-overlay:theme(colors.white/10%)]",
-			"dark:text-zinc-950 dark:[--btn-bg:white] dark:[--btn-hover-overlay:theme(colors.zinc.950/5%)]",
+			"dark:text-default-950 dark:[--btn-bg:white] dark:[--btn-hover-overlay:theme(colors.zinc.950/5%)]",
 			"[--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.300)] hover:[--btn-icon:theme(colors.zinc.300)] dark:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.400)] dark:hover:[--btn-icon:theme(colors.zinc.400)]",
 		],
 		dark: [
@@ -76,7 +76,7 @@ export const styles = {
 			"[--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.300)] hover:[--btn-icon:theme(colors.zinc.300)]",
 		],
 		white: [
-			"text-zinc-950 [--btn-bg:white] [--btn-border:theme(colors.zinc.950/10%)] [--btn-hover-overlay:theme(colors.zinc.950/2.5%)] active:[--btn-border:theme(colors.zinc.950/15%)] hover:[--btn-border:theme(colors.zinc.950/15%)]",
+			"text-default-950 [--btn-bg:white] [--btn-border:theme(colors.zinc.950/10%)] [--btn-hover-overlay:theme(colors.zinc.950/2.5%)] active:[--btn-border:theme(colors.zinc.950/15%)] hover:[--btn-border:theme(colors.zinc.950/15%)]",
 			"dark:[--btn-hover-overlay:theme(colors.zinc.950/5%)]",
 			"[--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.500)] hover:[--btn-icon:theme(colors.zinc.500)]",
 		],

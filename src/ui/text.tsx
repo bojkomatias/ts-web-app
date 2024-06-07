@@ -8,7 +8,7 @@ export function Text(props: JSX.HTMLAttributes<HTMLParagraphElement>) {
 			data-slot="text"
 			class={clsx(
 				props.class,
-				"text-base/6 text-zinc-500 dark:text-zinc-400 sm:text-sm/6",
+				"text-base/6 text-default-500 dark:text-default-400 sm:text-sm/6",
 			)}
 		/>
 	)
@@ -20,7 +20,7 @@ export function TextLink(props: JSX.HTMLAttributes<HTMLAnchorElement>) {
 			{...props}
 			class={clsx(
 				props.class,
-				"text-zinc-950 underline decoration-zinc-950/50 dark:text-white dark:decoration-white/50hover:decoration-zinc-950 dark:hover:decoration-white",
+				"text-default-950 underline decoration-default-950/50 dark:text-white dark:decoration-white/50hover:decoration-default-950 dark:hover:decoration-white",
 			)}
 		/>
 	)
@@ -30,7 +30,7 @@ export function Strong(props: JSX.HTMLAttributes<HTMLElement>) {
 	return (
 		<strong
 			{...props}
-			class={clsx(props.class, "font-medium text-zinc-950 dark:text-white")}
+			class={clsx(props.class, "font-medium text-default-950 dark:text-white")}
 		/>
 	)
 }
@@ -41,7 +41,7 @@ export function Code(props: JSX.HTMLAttributes<HTMLElement>) {
 			{...props}
 			class={clsx(
 				props.class,
-				"rounded border border-zinc-950/10 bg-zinc-950/[2.5%] px-0.5 font-medium text-sm text-zinc-950 dark:border-white/20 dark:bg-white/5 dark:text-white sm:text-[0.8125rem]",
+				"rounded border border-default-950/10 bg-default-950/[2.5%] px-0.5 font-medium text-default-950 text-sm dark:border-white/20 dark:bg-white/5 dark:text-white sm:text-[0.8125rem]",
 			)}
 		/>
 	)

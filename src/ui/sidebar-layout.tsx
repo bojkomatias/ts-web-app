@@ -29,7 +29,7 @@ import { NavbarItem } from "./navbar"
 //           leaveTo="-translate-x-full"
 //         >
 //           <Headless.DialogPanel class="fixed inset-y-0 w-full max-w-80 p-2 transition">
-//             <div class="flex h-full flex-col rounded-lg bg-white shadow-sm ring-1 ring-zinc-950/5 dark:bg-zinc-900 dark:ring-white/10">
+//             <div class="flex h-full flex-col rounded-lg bg-white shadow-sm ring-1 ring-default-950/5 dark:bg-default-900 dark:ring-white/10">
 //               <div class="-mb-3 px-4 pt-3">
 //                 <Headless.CloseButton
 //                   as={NavbarItem}
@@ -59,7 +59,7 @@ export function SidebarLayout({
 	const [showSidebar, setShowSidebar] = createSignal(false)
 
 	return (
-		<div class="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col dark:bg-zinc-900 dark:lg:bg-zinc-950 lg:bg-zinc-100">
+		<div class="relative isolate flex min-h-svh w-full bg-white max-lg:flex-col dark:bg-default-900 dark:lg:bg-default-950 lg:bg-default-100">
 			{/* Sidebar on desktop */}
 			<div class="fixed inset-y-0 left-0 w-64 max-lg:hidden">{sidebar}</div>
 
@@ -83,7 +83,7 @@ export function SidebarLayout({
 
 			{/* Content */}
 			<main class="flex flex-1 flex-col pb-2 lg:min-w-0 lg:pt-2 lg:pr-2 lg:pl-64">
-				<div class="grow p-6 lg:rounded-lg dark:lg:bg-zinc-900 lg:bg-white lg:p-10 lg:shadow-sm dark:lg:ring-white/10 lg:ring-1 lg:ring-zinc-950/5">
+				<div class="grow p-6 lg:rounded-lg dark:lg:bg-default-900 lg:bg-white lg:p-10 lg:shadow-sm dark:lg:ring-white/10 lg:ring-1 lg:ring-default-950/5">
 					<div class="mx-auto max-w-6xl">{children}</div>
 				</div>
 			</main>

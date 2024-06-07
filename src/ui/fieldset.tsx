@@ -24,7 +24,7 @@ export function Legend(props: JSX.HTMLAttributes<HTMLLegendElement>) {
 			data-slot="legend"
 			class={clsx(
 				props.class,
-				"font-semibold text-base/6 text-zinc-950 dark:text-white sm:text-sm/6 data-[disabled]:opacity-50",
+				"font-semibold text-base/6 text-default-950 dark:text-white sm:text-sm/6 data-[disabled]:opacity-50",
 			)}
 		/>
 	)
@@ -67,7 +67,7 @@ export function Label({
 			data-slot="label"
 			class={clsx(
 				props.class,
-				"select-none text-base/6 text-zinc-950 dark:text-white sm:text-sm/6 data-[disabled]:opacity-50",
+				"select-none text-base/6 text-default-950 dark:text-white sm:text-sm/6 data-[disabled]:opacity-50",
 			)}
 		/>
 	)
@@ -86,7 +86,7 @@ export function Description({
 			data-slot="description"
 			class={clsx(
 				props.class,
-				"text-base/6 text-zinc-500 dark:text-zinc-400 sm:text-sm/6 data-[disabled]:opacity-50",
+				"text-base/6 text-default-500 dark:text-default-400 sm:text-sm/6 data-[disabled]:opacity-50",
 			)}
 		/>
 	)
