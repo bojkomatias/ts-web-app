@@ -9,6 +9,7 @@ export default createHandler(() => (
 					<meta charset="utf-8" />
 					<meta name="viewport" content="width=device-width, initial-scale=1" />
 					<link rel="icon" href="/favicon.ico" />
+					<title>Solid Start | Templetazo</title>
 					{assets}
 				</head>
 				<body class="overflow-y-auto text-zinc-900 antialiased dark:bg-zinc-900 dark:lg:bg-zinc-950 lg:bg-zinc-100 dark:text-zinc-100">

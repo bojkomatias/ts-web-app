@@ -54,7 +54,7 @@ export default function AppLayout(props: RouteSectionProps) {
 							<InboxIcon data-slot="icon" />
 						</NavbarItem>
 						<Dropdown>
-							<DropdownButton plain>
+							<DropdownButton class="!p-1 w-full justify-normal" plain>
 								<Avatar class="size-6" src="/matu.jpeg" square />
 							</DropdownButton>
 							<DropdownMenu class="min-w-64">
@@ -89,7 +89,7 @@ export default function AppLayout(props: RouteSectionProps) {
 				<Sidebar>
 					<SidebarHeader>
 						<Dropdown>
-							<DropdownButton class="w-full justify-normal lg:mb-2.5" plain>
+							<DropdownButton class="w-full justify-normal" plain>
 								<Avatar class="size-6" src="/favicon.ico" />
 								<SidebarLabel>Tailwind Labs</SidebarLabel>
 								<span class="flex-1" />
@@ -120,6 +120,7 @@ export default function AppLayout(props: RouteSectionProps) {
 								</DropdownItem>
 							</DropdownMenu>
 						</Dropdown>
+						<SidebarSpacer />
 						<SidebarSection class="max-lg:hidden">
 							<SidebarItem href="/search">
 								<SearchIcon data-slot="icon" />
@@ -177,7 +178,7 @@ export default function AppLayout(props: RouteSectionProps) {
 					</SidebarBody>
 					<SidebarFooter class="max-lg:hidden">
 						<Dropdown>
-							<DropdownButton class="w-full justify-normal">
+							<DropdownButton class="w-full justify-normal" plain>
 								<span class="flex min-w-0 flex-grow items-center gap-3">
 									<Avatar src="/matu.jpeg" class="size-8" square alt="" />
 									<span class="min-w-0">

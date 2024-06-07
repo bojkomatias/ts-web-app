@@ -1,4 +1,3 @@
-import type { HTMLArkProps } from "@ark-ui/solid"
 import { clsx } from "clsx"
 import { type JSX, useContext } from "solid-js"
 import { createContext } from "solid-js"

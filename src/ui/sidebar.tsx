@@ -1,6 +1,6 @@
 import clsx from "clsx"
 import type { JSX } from "solid-js"
-import { TouchTarget } from "./button"
+import { type AnchorOrButton, TouchTarget } from "./button"
 
 export function Sidebar(props: JSX.HTMLAttributes<HTMLElement>) {
 	return <nav {...props} class={clsx(props.class, "flex h-full flex-col")} />
@@ -92,9 +92,7 @@ export const SidebarItem = ({
 	current,
 	children,
 	...props
-}: { current?: boolean; children: JSX.Element } & JSX.HTMLAttributes<
-	HTMLButtonElement | HTMLAnchorElement
->) => {
+}: { current?: boolean; children: JSX.Element } & AnchorOrButton) => {
 	const classes = clsx(
 		// Base
 		"flex w-full items-center gap-3 rounded-lg px-2 py-2.5 text-left text-base/6 font-medium text-zinc-950 sm:py-2 sm:text-sm/5",
@@ -127,13 +125,15 @@ export const SidebarItem = ({
       )} */}
 			{"href" in props ? (
 				// <Headless.CloseButton as={Fragment} ref={ref}>
-				<a
-					class={classes}
-					{...props}
-					data-current={current ? "true" : undefined}
-				>
-					<TouchTarget>{children}</TouchTarget>
-				</a>
+				props.href && (
+					<a
+						class={classes}
+						{...props}
+						data-current={current ? "true" : undefined}
+					>
+						<TouchTarget>{children}</TouchTarget>
+					</a>
+				)
 			) : (
 				// </Headless.CloseButton>
 				<button
