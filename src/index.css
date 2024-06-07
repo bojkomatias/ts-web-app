@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
+@base {
+    :root {
+        --hue: 0.01;
+    }
+}
 
 * {
     /* border: 0.5px solid gray); */
