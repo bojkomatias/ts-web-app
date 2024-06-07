@@ -12,7 +12,7 @@ export default createHandler(() => (
 					<title>Solid Start | Templetazo</title>
 					{assets}
 				</head>
-				<body class="overflow-y-auto text-zinc-900 antialiased dark:bg-zinc-900 dark:lg:bg-zinc-950 lg:bg-zinc-100 dark:text-zinc-100">
+				<body class="overflow-y-auto text-default-900 antialiased dark:bg-default-900 dark:lg:bg-default-950 lg:bg-default-100 dark:text-default-100">
 					<div id="app">{children}</div>
 					{scripts}
 				</body>

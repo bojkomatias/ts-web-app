@@ -34,7 +34,7 @@ export const Input = ({
 				// Focus ring
 				"after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500 after:ring-inset",
 				// Disabled state
-				"before:has-[[disabled]]:bg-zinc-950/5 has-[[disabled]]:opacity-50 before:has-[[disabled]]:shadow-none",
+				"before:has-[[disabled]]:bg-default-950/5 has-[[disabled]]:opacity-50 before:has-[[disabled]]:shadow-none",
 				// Invalid state
 				"before:has-[[data-invalid]]:shadow-red-500/10",
 			])}
@@ -62,9 +62,9 @@ export const Input = ({
 					// Basic layout
 					"relative block w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)]",
 					// Typography
-					"text-base/6 text-zinc-950 dark:text-white placeholder:text-zinc-500 sm:text-sm/6",
+					"text-base/6 text-default-950 dark:text-white placeholder:text-default-500 sm:text-sm/6",
 					// Border
-					"border border-zinc-950/10 dark:border-white/10 dark:hover:border-white/20hover:border-zinc-950/20",
+					"border border-default-950/10 dark:border-white/10 dark:hover:border-white/20hover:border-default-950/20",
 					// Background color
 					"bg-transparent dark:bg-white/5",
 					// Hide default focus styles
@@ -72,7 +72,7 @@ export const Input = ({
 					// Invalid state
 					"data-[invalid]:border-red-500 data-[invalid]:dark:border-red-500 data-[invalid]:hover:border-red-500 data-[invalid]:hover:dark:border-red-500",
 					// Disabled state
-					"dark:hover:data-[disabled]:border-white/15 data-[disabled]:border-zinc-950/20 data-[disabled]:dark:border-white/15 data-[disabled]:dark:bg-white/[2.5%]",
+					"dark:hover:data-[disabled]:border-white/15 data-[disabled]:border-default-950/20 data-[disabled]:dark:border-white/15 data-[disabled]:dark:bg-white/[2.5%]",
 				])}
 			/>
 		</span>
@@ -88,7 +88,7 @@ export function InputGroup({ children }: JSX.HTMLAttributes<HTMLSpanElement>) {
 				"[&_input]:has-[[data-slot=icon]:last-child]:pr-10 sm:[&_input]:has-[[data-slot=icon]:last-child]:pr-8 [&_input]:has-[[data-slot=icon]:first-child]:pl-10 sm:[&_input]:has-[[data-slot=icon]:first-child]:pl-8",
 				"[&>[data-slot=icon]]:pointer-events-none [&>[data-slot=icon]]:absolute [&>[data-slot=icon]]:top-3 sm:[&>[data-slot=icon]]:top-2.5 [&>[data-slot=icon]]:z-10 [&>[data-slot=icon]]:size-5 sm:[&>[data-slot=icon]]:size-4",
 				"[&>[data-slot=icon]:last-child]:right-3 sm:[&>[data-slot=icon]:last-child]:right-2.5 [&>[data-slot=icon]:first-child]:left-3 sm:[&>[data-slot=icon]:first-child]:left-2.5",
-				"[&>[data-slot=icon]]:text-zinc-500 dark:[&>[data-slot=icon]]:text-zinc-400",
+				"[&>[data-slot=icon]]:text-default-500 dark:[&>[data-slot=icon]]:text-default-400",
 			)}
 		>
 			{children}

@@ -16,7 +16,7 @@ export default function Index() {
 	const [open, setIsOpen] = createSignal(false)
 	return (
 		<div class="flex h-screen items-center justify-center gap-4">
-			<Button href="/app" color="light">
+			<Button href="/app" class="dark:bg-default-500">
 				Go to App
 			</Button>
 			<Checkbox />

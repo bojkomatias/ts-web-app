@@ -16,7 +16,7 @@ export function NavbarDivider(props: JSX.HTMLAttributes<HTMLDivElement>) {
 		<div
 			aria-hidden="true"
 			{...props}
-			class={clsx(props.class, "h-6 w-px bg-zinc-950/10 dark:bg-white/10")}
+			class={clsx(props.class, "h-6 w-px bg-default-950/10 dark:bg-white/10")}
 		/>
 	)
 }
@@ -50,7 +50,7 @@ export const NavbarItem = ({
 } & AnchorOrButton) => {
 	const classes = clsx(
 		// Base
-		"relative flex min-w-0 items-center gap-3 rounded-lg p-2 text-left text-base/6 font-medium text-zinc-950 sm:text-sm/5",
+		"relative flex min-w-0 items-center gap-3 rounded-lg p-2 text-left text-base/6 font-medium text-default-950 sm:text-sm/5",
 		// Leading icon/icon-only
 		"data-[slot=icon]:*:size-6 data-[slot=icon]:*:shrink-0 data-[slot=icon]:*:stroke-600 sm:data-[slot=icon]:*:size-5",
 		// Trailing icon (down chevron or similar)
@@ -58,15 +58,15 @@ export const NavbarItem = ({
 		// Avatar
 		"data-[slot=avatar]:*:-m-0.5 data-[slot=avatar]:*:size-7 data-[slot=avatar]:*:[--avatar-radius:theme(borderRadius.DEFAULT)] data-[slot=avatar]:*:[--ring-opacity:10%] sm:data-[slot=avatar]:*:size-6",
 		// Hover
-		"hover:bg-zinc-950/5 data-[slot=icon]:*:hover:stroke-zinc-950",
+		"hover:bg-default-950/5 data-[slot=icon]:*:hover:stroke-default-950",
 		// Active
-		"active:bg-zinc-950/5 data-[slot=icon]:*:active:stroke-zinc-950",
+		"active:bg-default-950/5 data-[slot=icon]:*:active:stroke-default-950",
 		// Dark mode
 		"dark:text-white dark:data-[slot=icon]:*:stroke-400",
 		"dark:hover:bg-white/5 dark:data-[slot=icon]:*:hover:stroke-white",
 		"dark:active:bg-white/5 dark:data-[slot=icon]:*:active:stroke-white",
 		// Indicator
-		"data-[current=true]:after:absolute after:inset-x-2 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-zinc-950 after:dark:bg-white",
+		"data-[current=true]:after:absolute after:inset-x-2 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-default-950 after:dark:bg-white",
 	)
 
 	return (

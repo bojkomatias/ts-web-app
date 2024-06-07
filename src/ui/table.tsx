@@ -54,7 +54,7 @@ export function Table(
 export function TableHead(props: JSX.HTMLAttributes<HTMLTableSectionElement>) {
 	return (
 		<thead
-			class={clsx(props.class, "text-zinc-500 dark:text-zinc-400")}
+			class={clsx(props.class, "text-default-500 dark:text-default-400")}
 			{...props}
 		/>
 	)
@@ -97,11 +97,13 @@ export function TableRow(
 					props.class,
 					props.href &&
 						"has-[[data-row-link][data-focus]]:-outline-offset-2 dark:focus-within:bg-white/[2.5%] has-[[data-row-link][data-focus]]:outline has-[[data-row-link][data-focus]]:outline-2 has-[[data-row-link][data-focus]]:outline-blue-500",
-					striped && "dark:even:bg-white/[2.5%] even:bg-zinc-950/[2.5%]",
-					props.href && striped && "dark:hover:bg-white/5 hover:bg-zinc-950/5",
+					striped && "dark:even:bg-white/[2.5%] even:bg-default-950/[2.5%]",
+					props.href &&
+						striped &&
+						"dark:hover:bg-white/5 hover:bg-default-950/5",
 					props.href &&
 						!striped &&
-						"dark:hover:bg-white/[2.5%] hover:bg-zinc-950/[2.5%]",
+						"dark:hover:bg-white/[2.5%] hover:bg-default-950/[2.5%]",
 				)}
 			>
 				{props.children}
@@ -118,9 +120,9 @@ export function TableHeader(props: JSX.HTMLAttributes<HTMLTableCellElement>) {
 			{...props}
 			class={clsx(
 				props.class,
-				"border-b border-b-zinc-950/10 px-4 py-2 font-medium dark:border-b-white/10 last:pr-[var(--gutter,theme(spacing.2))] first:pl-[var(--gutter,theme(spacing.2))]",
+				"border-b border-b-default-950/10 px-4 py-2 font-medium dark:border-b-white/10 last:pr-[var(--gutter,theme(spacing.2))] first:pl-[var(--gutter,theme(spacing.2))]",
 				grid &&
-					"border-l border-l-zinc-950/5 dark:border-l-white/5 first:border-l-0",
+					"border-l border-l-default-950/5 dark:border-l-white/5 first:border-l-0",
 				!bleed && "sm:last:pr-1 sm:first:pl-1",
 			)}
 		/>
@@ -137,9 +139,9 @@ export function TableCell(props: JSX.HTMLAttributes<HTMLTableCellElement>) {
 			class={clsx(
 				props.class,
 				"relative px-4 last:pr-[var(--gutter,theme(spacing.2))] first:pl-[var(--gutter,theme(spacing.2))]",
-				!striped && "border-zinc-950/5 border-b dark:border-white/5",
+				!striped && "border-default-950/5 border-b dark:border-white/5",
 				grid &&
-					"border-l border-l-zinc-950/5 dark:border-l-white/5 first:border-l-0",
+					"border-l border-l-default-950/5 dark:border-l-white/5 first:border-l-0",
 				dense ? "py-2.5" : "py-4",
 				!bleed && "sm:last:pr-1 sm:first:pl-1",
 			)}
