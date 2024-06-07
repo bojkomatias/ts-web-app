@@ -1,4 +1,3 @@
-import type { HTMLArkProps } from "@ark-ui/solid"
 import { clsx } from "clsx"
 import type { JSX } from "solid-js"
 
