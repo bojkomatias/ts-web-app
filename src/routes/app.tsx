@@ -54,7 +54,7 @@ export default function AppLayout(props: RouteSectionProps) {
 							<InboxIcon data-slot="icon" />
 						</NavbarItem>
 						<Dropdown>
-							<DropdownButton class="!p-1 w-full justify-normal" plain>
+							<DropdownButton class="!px-1.5 w-full justify-normal" plain>
 								<Avatar class="size-6" src="/matu.jpeg" square />
 							</DropdownButton>
 							<DropdownMenu class="min-w-64">

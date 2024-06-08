@@ -39,15 +39,13 @@ export function NavbarSpacer(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	)
 }
 
-export const NavbarItem = ({
-	current,
-	children,
-	...props
-}: {
-	current?: boolean
-	className?: string
-	children: JSX.Element
-} & AnchorOrButton) => {
+export const NavbarItem = (
+	props: {
+		current?: boolean
+		className?: string
+		children: JSX.Element
+	} & AnchorOrButton,
+) => {
 	const classes = clsx(
 		// Base
 		"relative flex min-w-0 items-center gap-3 rounded-lg p-2 text-left text-base/6 font-medium text-default-950 sm:text-sm/5",
@@ -66,7 +64,7 @@ export const NavbarItem = ({
 		"dark:hover:bg-white/5 dark:data-[slot=icon]:*:hover:stroke-white",
 		"dark:active:bg-white/5 dark:data-[slot=icon]:*:active:stroke-white",
 		// Indicator
-		"data-[current=true]:after:absolute after:inset-x-2 after:-bottom-1 after:h-0.5 after:rounded-full after:bg-default-950 after:dark:bg-white",
+		"data-[current=true]:after:absolute data-[current=true]:after:inset-x-2 data-[current=true]:after:-bottom-1 data-[current=true]:after:h-0.5 data-[current=true]:after:rounded-full data-[current=true]:after:bg-default-950 data-[current=true]:after:dark:bg-white",
 	)
 
 	return (
@@ -76,18 +74,18 @@ export const NavbarItem = ({
 					<a
 						{...props}
 						class={classes}
-						data-current={current ? "true" : undefined}
+						data-current={props.current ? "true" : undefined}
 					>
-						<TouchTarget>{children}</TouchTarget>
+						<TouchTarget>{props.children}</TouchTarget>
 					</a>
 				)
 			) : (
 				<button
 					{...props}
 					class={clsx("cursor-default", classes)}
-					data-current={current ? "true" : undefined}
+					data-current={props.current ? "true" : undefined}
 				>
-					<TouchTarget>{children}</TouchTarget>
+					<TouchTarget>{props.children}</TouchTarget>
 				</button>
 			)}
 		</span>

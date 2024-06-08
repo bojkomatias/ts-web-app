@@ -1,45 +1,48 @@
 import { createSignal } from "solid-js"
+import { SolidMarkdown } from "solid-markdown"
 import { Button } from "~/ui/button"
-import { Checkbox } from "~/ui/checkbox"
-import {
-	Dialog,
-	DialogActions,
-	DialogBody,
-	DialogContent,
-	DialogDescription,
-	DialogTitle,
-} from "~/ui/dialog"
-import { Field, Label } from "~/ui/fieldset"
-import { Input } from "~/ui/input"
+import { Drawer, DrawerCloseButton, DrawerContent } from "~/ui/drawer"
+
+const markdown = `
+  # Client project starter
+
+  ### Todo
+
+  - ✓ Define project architecture
+  - [x] Configure theme
+  - [x] Configure linter + formatter
+  - [x] Connect ORM + DB
+  - [] Setup query layer
+  - [] Setup form management
+  - [] Validations
+  - [] Internacionalization
+  - [] Caching
+  - [] Mutation + invalidation
+
+  ## Developing
+
+  Comment of leave examples to copy and paste easily for future scaffolding
+`
 
 export default function Index() {
-	const [open, setIsOpen] = createSignal(false)
+	const [open, setOpen] = createSignal(false)
 	return (
-		<div class="flex h-screen items-center justify-center gap-4 bg-default-500 dark:bg-default-500">
-			<Button href="/app">Go to App</Button>
-			<Checkbox />
-			<Button onClick={() => setIsOpen(true)}>Refund payment</Button>
-			<Dialog open={open()} onOpenChange={setIsOpen}>
-				<DialogContent>
-					<DialogTitle>Refund payment</DialogTitle>
-					<DialogDescription>
-						The refund will be reflected in the customer’s bank account 2 to 3
-						business days after processing.
-					</DialogDescription>
-					<DialogBody>
-						<Field>
-							<Label>Amount</Label>
-							<Input name="amount" placeholder="$0.00" />
-						</Field>
-					</DialogBody>
-					<DialogActions>
-						<Button plain onClick={() => setIsOpen(false)}>
-							Cancel
-						</Button>
-						<Button onClick={() => setIsOpen(false)}>Refund</Button>
-					</DialogActions>
-				</DialogContent>
-			</Dialog>
+		<div class="">
+			<Button onClick={() => setOpen(true)}>Show modal</Button>
+
+			<Drawer open={open()} onOpenChange={setOpen}>
+				<DrawerContent fromLeft>
+					<DrawerCloseButton />
+					Lorem ipsum, dolor sit amet consectetur adipisicing elit. Voluptatum
+					officiis consequatur aspernatur dicta quibusdam quam ipsa voluptates
+					doloremque reiciendis sunt! Tempora autem eaque commodi maxime
+					perferendis temporibus dolores debitis praesentium.
+				</DrawerContent>
+			</Drawer>
+
+			<SolidMarkdown class="prose dark:prose-invert mx-auto rounded-lg p-12 dark:bg-default-800">
+				{markdown}
+			</SolidMarkdown>
 		</div>
 	)
 }

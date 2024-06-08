@@ -2,24 +2,10 @@ import { clsx } from "clsx"
 import type { JSX } from "solid-js"
 
 const dateTypes = ["date", "datetime-local", "month", "time", "week"]
-type DateType = (typeof dateTypes)[number]
 
-// type InputProps = {
-//   type?:
-//   | "email"
-//   | "number"
-//   | "password"
-//   | "search"
-//   | "tel"
-//   | "text"
-//   | "url"
-//   | DateType
-// } & { invalid?: boolean } &
-
-export const Input = ({
-	invalid,
-	...props
-}: JSX.InputHTMLAttributes<HTMLInputElement> & { invalid?: boolean }) => {
+export const Input = (
+	props: JSX.InputHTMLAttributes<HTMLInputElement> & { invalid?: boolean },
+) => {
 	return (
 		<span
 			data-slot="control"
@@ -40,7 +26,7 @@ export const Input = ({
 			])}
 		>
 			<input
-				{...(invalid ? { "data-invalid": "data-invalid" } : {})}
+				{...(props.invalid ? { "data-invalid": "data-invalid" } : {})}
 				{...props}
 				class={clsx([
 					// Date classes

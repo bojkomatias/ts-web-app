@@ -2,28 +2,22 @@ import { sql } from "drizzle-orm"
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core"
 import { createInsertSchema, createSelectSchema } from "drizzle-zod"
 import type { z } from "zod"
-import { roles } from "../role/schema"
 
 // SQL Table
-export const users = sqliteTable("users", {
+export const roles = sqliteTable("roles", {
 	id: integer("id").primaryKey({ autoIncrement: true }),
-	givenName: text("given_name").notNull(),
-	familiyName: text("family_name"),
-	email: text("email"),
-	phone: text("phone"),
-
-	roleId: integer("role_id").references(() => roles.id),
+	role: text("role").notNull().unique(),
 
 	updatedAt: text("updated_at")
 		.notNull()
 		.default(sql`CURRENT_TIMESTAMP`)
 		.$onUpdate(() => sql`CURRENT_TIMESTAMP`),
-	createAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
+	createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 })
 
 // Schema for inserting a user - can be used to validate API requests
-export const insertUserSchema = createInsertSchema(users)
+export const insertRoleSchema = createInsertSchema(roles)
 // Schema for selecting a user - can be used to validate API responses
-export const selectUserSchema = createSelectSchema(users)
+export const selectRoleSchema = createSelectSchema(roles)
 
-export type User = z.infer<typeof selectUserSchema>
+export type Role = z.infer<typeof selectRoleSchema>

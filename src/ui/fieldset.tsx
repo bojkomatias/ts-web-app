@@ -56,11 +56,11 @@ export function Field(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	)
 }
 
-export function Label({
-	...props
-}: {
-	className?: string
-} & JSX.HTMLAttributes<HTMLLabelElement>) {
+export function Label(
+	props: {
+		className?: string
+	} & JSX.HTMLAttributes<HTMLLabelElement>,
+) {
 	return (
 		<label
 			{...props}
@@ -73,13 +73,12 @@ export function Label({
 	)
 }
 
-export function Description({
-	disabled,
-	...props
-}: {
-	className?: string
-	disabled?: boolean
-} & JSX.HTMLAttributes<HTMLDivElement>) {
+export function Description(
+	props: {
+		className?: string
+		disabled?: boolean
+	} & JSX.HTMLAttributes<HTMLDivElement>,
+) {
 	return (
 		<div
 			{...props}

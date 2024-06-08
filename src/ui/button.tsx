@@ -167,32 +167,26 @@ export type ButtonProps = (
 ) &
 	AnchorOrButton
 
-export const Button = ({
-	color,
-	outline,
-	plain,
-	children,
-	...props
-}: ButtonProps) => {
+export const Button = (props: ButtonProps) => {
 	const classes = clsx(
 		props.class,
 		styles.base,
-		outline
+		props.outline
 			? styles.outline
-			: plain
+			: props.plain
 				? styles.plain
-				: clsx(styles.solid, styles.colors[color ?? "light"]),
+				: clsx(styles.solid, styles.colors[props.color ?? "light"]),
 	)
 
 	return "href" in props ? (
 		props.href && (
 			<a {...props} class={classes}>
-				<TouchTarget>{children}</TouchTarget>
+				<TouchTarget>{props.children}</TouchTarget>
 			</a>
 		)
 	) : (
 		<button {...props} class={clsx(classes, "cursor-default")}>
-			<TouchTarget>{children}</TouchTarget>
+			<TouchTarget>{props.children}</TouchTarget>
 		</button>
 	)
 }
@@ -200,14 +194,14 @@ export const Button = ({
 /**
  * Expand the hit area to at least 44×44px on touch devices
  */
-export function TouchTarget({ children }: { children: JSX.Element }) {
+export function TouchTarget(props: { children: JSX.Element }) {
 	return (
 		<>
 			<span
 				class="-translate-x-1/2 -translate-y-1/2 absolute top-1/2 left-1/2 size-[max(100%,2.75rem)] [@media(pointer:fine)]:hidden"
 				aria-hidden="true"
 			/>
-			{children}
+			{props.children}
 		</>
 	)
 }

@@ -1,23 +1,22 @@
 import { defineConfig } from "drizzle-kit";
-import { z } from "zod";
-
-const url = z
-  .string({ message: "No Turso Database Url" })
-  .trim()
-  .parse(import.meta.env.VITE_DATABASE_URL);
-
-const authToken = z
-  .string()
-  .trim()
-  .parse(import.meta.env.VITE_DATABASE_TOKEN);
+// import { z } from "zod";
 
 export default defineConfig({
   dialect: "sqlite",
-  driver: "turso",
   schema: "./src/db/**/schema.ts",
   out: "./drizzle",
   dbCredentials: {
-    url,
-    authToken,
+    url: "sqlite.db",
   },
 });
+
+/* <-- check if connecting to Turso */
+// const url = z
+//   .string({ message: "No Turso Database Url" })
+//   .trim()
+//   .parse(import.meta.env.VITE_DATABASE_URL);
+
+// const authToken = z
+//   .string()
+//   .trim()
+//   .parse(import.meta.env.VITE_DATABASE_TOKEN);

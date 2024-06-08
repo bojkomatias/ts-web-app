@@ -88,11 +88,9 @@ export function SidebarHeading(props: JSX.HTMLAttributes<HTMLHeadingElement>) {
 	)
 }
 
-export const SidebarItem = ({
-	current,
-	children,
-	...props
-}: { current?: boolean; children: JSX.Element } & AnchorOrButton) => {
+export const SidebarItem = (
+	props: { current?: boolean; children: JSX.Element } & AnchorOrButton,
+) => {
 	const classes = clsx(
 		// Base
 		"flex w-full items-center gap-3 rounded-lg px-2 py-2.5 text-left text-base/6 font-medium text-default-950 sm:py-2 sm:text-sm/5",
@@ -129,9 +127,9 @@ export const SidebarItem = ({
 					<a
 						class={classes}
 						{...props}
-						data-current={current ? "true" : undefined}
+						data-current={props.current ? "true" : undefined}
 					>
-						<TouchTarget>{children}</TouchTarget>
+						<TouchTarget>{props.children}</TouchTarget>
 					</a>
 				)
 			) : (
@@ -139,9 +137,9 @@ export const SidebarItem = ({
 				<button
 					{...props}
 					class={clsx("cursor-default", classes)}
-					data-current={current ? "true" : undefined}
+					data-current={props.current ? "true" : undefined}
 				>
-					<TouchTarget>{children}</TouchTarget>
+					<TouchTarget>{props.children}</TouchTarget>
 				</button>
 			)}
 		</span>

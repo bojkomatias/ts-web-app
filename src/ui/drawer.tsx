@@ -1,7 +1,32 @@
 import { Dialog as KobalteDialog } from "@kobalte/core/dialog"
-import type { DialogContentProps, DialogRootProps } from "@kobalte/core/dialog"
+import type {
+	DialogCloseButtonProps,
+	DialogContentProps,
+	DialogRootProps,
+} from "@kobalte/core/dialog"
 import { clsx } from "clsx"
+import { XIcon } from "lucide-solid"
 import type { JSX } from "solid-js"
+import { Button } from "./button"
+
+export function Drawer(
+	props: {
+		children: JSX.Element
+	} & DialogRootProps,
+) {
+	return (
+		<KobalteDialog {...props}>
+			<KobalteDialog.Portal>
+				<KobalteDialog.Overlay
+					class={clsx(
+						"pointer-events-none fixed inset-0 flex w-screen justify-center overflow-y-auto bg-default-950/25 px-2 py-2 dark:bg-default-950/50 lg:px-8 sm:px-6 lg:py-16 sm:py-8 focus:outline-0",
+					)}
+				/>
+				{props.children}
+			</KobalteDialog.Portal>
+		</KobalteDialog>
+	)
+}
 
 const sizes = {
 	xs: "sm:max-w-xs",
@@ -15,50 +40,22 @@ const sizes = {
 	"5xl": "sm:max-w-5xl",
 }
 
-export function Dialog(
-	props: {
-		children: JSX.Element
-	} & DialogRootProps,
-) {
-	return (
-		<KobalteDialog {...props}>
-			<KobalteDialog.Portal>
-				<KobalteDialog.Overlay
-					class={clsx(
-						"pointer-events-none fixed inset-0 flex w-screen justify-center overflow-y-auto bg-default-950/25 px-2 py-2 dark:bg-default-950/50 lg:px-8 sm:px-6 lg:py-16 sm:py-8 focus:outline-0",
-					)}
-				/>
-				<div class="fixed inset-0 w-screen overflow-y-auto pt-6 sm:pt-0">
-					<div
-						class={clsx(
-							"grid min-h-full grid-rows-[1fr_auto] justify-items-center sm:grid-rows-[1fr_auto_3fr] sm:p-4",
-
-							//
-							"justify-items-end",
-						)}
-					>
-						{props.children}
-					</div>
-				</div>
-			</KobalteDialog.Portal>
-		</KobalteDialog>
-	)
-}
-
-export const DialogContent = ({
-	size = "lg",
+export const DrawerContent = ({
+	size = "md",
 	...props
 }: {
 	size?: keyof typeof sizes
 	class?: string
 	children: JSX.Element
+	fromLeft?: true
 } & DialogContentProps) => {
 	return (
 		<KobalteDialog.Content
 			class={clsx(
 				props.class,
 				sizes[size],
-				"relative row-start-2 w-full min-w-0 rounded-t-3xl bg-white p-[--gutter] shadow-lg ring-1 ring-default-950/10 [--gutter:theme(spacing.8)] sm:mb-auto sm:rounded-2xl dark:bg-default-900 forced-colors:outline dark:ring-white/10",
+				"fixed inset-x-2 inset-y-2 flex h-[calc(100svh-1rem)] flex-col rounded-lg bg-white shadow-sm ring-1 ring-default-950/5 transition sm:w-full dark:bg-default-900 dark:ring-white/10",
+				props.fromLeft ? "left-2" : "right-2",
 			)}
 		>
 			{props.children}
@@ -66,7 +63,7 @@ export const DialogContent = ({
 	)
 }
 
-export function DialogTitle(props: JSX.HTMLAttributes<HTMLHeadingElement>) {
+export function DrawerTitle(props: JSX.HTMLAttributes<HTMLHeadingElement>) {
 	return (
 		<KobalteDialog.Title
 			{...props}
@@ -78,7 +75,7 @@ export function DialogTitle(props: JSX.HTMLAttributes<HTMLHeadingElement>) {
 	)
 }
 
-export function DialogDescription(props: JSX.HTMLAttributes<HTMLDivElement>) {
+export function DrawerDescription(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<KobalteDialog.Description
 			{...props}
@@ -90,11 +87,11 @@ export function DialogDescription(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	)
 }
 
-export function DialogBody(props: JSX.HTMLAttributes<HTMLDivElement>) {
+export function DrawerBody(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	return <div {...props} class={clsx(props.class, "mt-6")} />
 }
 
-export function DialogActions(props: JSX.HTMLAttributes<HTMLDivElement>) {
+export function DrawerActions(props: JSX.HTMLAttributes<HTMLDivElement>) {
 	return (
 		<div
 			{...props}
@@ -103,5 +100,15 @@ export function DialogActions(props: JSX.HTMLAttributes<HTMLDivElement>) {
 				"mt-8 flex flex-col-reverse items-center justify-end gap-3 *:w-full sm:*:w-auto sm:flex-row",
 			)}
 		/>
+	)
+}
+
+export function DrawerCloseButton(props: DialogCloseButtonProps) {
+	return (
+		<KobalteDialog.CloseButton {...props} class="self-end p-2">
+			<Button plain class="size-8">
+				<XIcon data-slot="icon" class="!size-5" />
+			</Button>
+		</KobalteDialog.CloseButton>
 	)
 }

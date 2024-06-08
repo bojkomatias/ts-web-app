@@ -1,21 +1,6 @@
-import "dotenv/config";
-import { createClient } from "@libsql/client";
-import { drizzle } from "drizzle-orm/libsql";
-import { z } from "zod";
+import Database from "better-sqlite3"
+import { drizzle } from "drizzle-orm/better-sqlite3"
 
-const url = z
-  .string({ message: "No Turso Database Url" })
-  .trim()
-  .parse(import.meta.env.VITE_DATABASE_URL);
+const sqlite = new Database("sqlite.db")
 
-const authToken = z
-  .string()
-  .trim()
-  .parse(import.meta.env.VITE_DATABASE_TOKEN);
-
-const client = createClient({
-  url,
-  authToken,
-});
-
-export const db = drizzle(client);
+export const db = drizzle(sqlite)
