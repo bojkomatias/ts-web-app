@@ -1,4 +1,4 @@
-import { Calculator, LayoutDashboard, Plus, UserSquare } from "lucide-solid"
+import { Calculator, LayoutDashboard, UserSquare } from "lucide-solid"
 import type { JSX } from "solid-js"
 
 type Navigation = {

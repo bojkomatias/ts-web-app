@@ -11,7 +11,7 @@ function MobileSidebar(props: {
 }) {
 	return (
 		<Drawer open={props.open()} onOpenChange={props.setOpen}>
-			<DrawerContent fromLeft size="xs">
+			<DrawerContent fromLeft size="2xs">
 				<DrawerCloseButton />
 				{props.children}
 			</DrawerContent>

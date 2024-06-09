@@ -3,10 +3,10 @@ import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core"
 import { createInsertSchema, createSelectSchema } from "drizzle-zod"
 import type { z } from "zod"
 
-// SQL Table
-export const roles = sqliteTable("roles", {
+export const actions = sqliteTable("actions", {
 	id: integer("id").primaryKey({ autoIncrement: true }),
-	role: text("role").notNull().unique(),
+	resource: text("resource").notNull(),
+	action: text("action").notNull(),
 
 	updatedAt: text("updated_at")
 		.notNull()
@@ -15,8 +15,8 @@ export const roles = sqliteTable("roles", {
 	createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 })
 
-export const insertRoleSchema = createInsertSchema(roles)
+export const insertActionSchema = createInsertSchema(actions)
 
-export const selectRoleSchema = createSelectSchema(roles)
+export const selectActionSchema = createSelectSchema(actions)
 
-export type Role = z.infer<typeof selectRoleSchema>
+export type Action = z.infer<typeof selectActionSchema>

@@ -21,9 +21,8 @@ export const users = sqliteTable("users", {
 	createAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 })
 
-// Schema for inserting a user - can be used to validate API requests
 export const insertUserSchema = createInsertSchema(users)
-// Schema for selecting a user - can be used to validate API responses
+// Schema for selecting a user - can be used to validate API response
 export const selectUserSchema = createSelectSchema(users)
 
 export type User = z.infer<typeof selectUserSchema>

@@ -29,6 +29,7 @@ export function Drawer(
 }
 
 const sizes = {
+	"2xs": "sm:max-w-52",
 	xs: "sm:max-w-xs",
 	sm: "sm:max-w-sm",
 	md: "sm:max-w-md",
