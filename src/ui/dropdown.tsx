@@ -34,6 +34,7 @@ export function DropdownButton(props: ButtonProps) {
 	const classes = clsx(
 		props.class,
 		styles.base,
+		styles.sizes[props.size ?? "base"],
 		props.outline
 			? styles.outline
 			: props.plain

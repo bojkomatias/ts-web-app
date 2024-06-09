@@ -4,15 +4,13 @@ import type { JSX } from "solid-js"
 export const styles = {
 	base: [
 		// Base
-		"relative isolate inline-flex items-center justify-center gap-x-2 rounded-lg border text-base/6 font-semibold",
-		// Sizing
-		"px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing.3)-1px)] sm:py-[calc(theme(spacing[1.5])-1px)] sm:text-sm/6",
+		"relative isolate inline-flex items-center justify-center gap-x-2 rounded-lg border font-medium",
 		// Focus
 		"focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500",
 		// Disabled
 		"disabled:opacity-50",
 		// Icon
-		"[&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-0.5 [&>[data-slot=icon]]:size-5 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--btn-icon] [&>[data-slot=icon]]:sm:my-1 [&>[data-slot=icon]]:sm:size-4 forced-colors:[--btn-icon:ButtonText] forced-colors:hover:[--btn-icon:ButtonText]",
+		"[&>[data-slot=icon]]:-mx-0.5 [&>[data-slot=icon]]:my-0.5 [&>[data-slot=icon]]:size-4 [&>[data-slot=icon]]:shrink-0 [&>[data-slot=icon]]:text-[--btn-icon] [&>[data-slot=icon]]:sm:my-1 [&>[data-slot=icon]]:sm:size-3.5 forced-colors:[--btn-icon:ButtonText] forced-colors:hover:[--btn-icon:ButtonText]",
 	],
 	solid: [
 		// Optical border, implemented as the button background to avoid corner artifacts
@@ -54,6 +52,14 @@ export const styles = {
 		// Icon
 		"[--btn-icon:theme(colors.zinc.500)] active:[--btn-icon:theme(colors.zinc.700)] hover:[--btn-icon:theme(colors.zinc.700)] dark:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.400)] dark:hover:[--btn-icon:theme(colors.zinc.400)]",
 	],
+	sizes: {
+		base: [
+			"px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing.2)-1px)] sm:px-[calc(theme(spacing.3)-1px)] sm:py-[calc(theme(spacing[1.5])-1px)] text-base/6 sm:text-sm/6",
+		],
+		sm: [
+			"px-[calc(theme(spacing.3)-1px)] py-[calc(theme(spacing[1.5])-1px)] sm:px-[calc(theme(spacing[2.5])-1px)] sm:py-[calc(theme(spacing[1])-1px)] text-base/6 sm:text-sm/6",
+		],
+	},
 	colors: {
 		"dark/zinc": [
 			"text-white [--btn-bg:theme(colors.zinc.900)] [--btn-border:theme(colors.zinc.950/90%)] [--btn-hover-overlay:theme(colors.white/10%)]",
@@ -158,19 +164,22 @@ export const styles = {
 
 export type AnchorOrButton =
 	| ({ href: string } & JSX.HTMLAttributes<HTMLAnchorElement>)
-	| ({ href?: never } & JSX.HTMLAttributes<HTMLButtonElement>)
+	| ({
+			href?: never
+			type?: "button" | "submit" | "reset"
+	  } & JSX.HTMLAttributes<HTMLButtonElement>)
 
 export type ButtonProps = (
 	| { color?: keyof typeof styles.colors; outline?: never; plain?: never }
 	| { color?: never; outline: true; plain?: never }
 	| { color?: never; outline?: never; plain: true }
-) &
-	AnchorOrButton
+) & { size?: keyof typeof styles.sizes } & AnchorOrButton
 
 export const Button = (props: ButtonProps) => {
 	const classes = clsx(
 		props.class,
 		styles.base,
+		styles.sizes[props.size ?? "base"],
 		props.outline
 			? styles.outline
 			: props.plain

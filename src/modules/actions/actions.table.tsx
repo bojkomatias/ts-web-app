@@ -10,10 +10,8 @@ import {
 	getFilteredRowModel,
 } from "@tanstack/solid-table"
 import { For, Show, createSignal } from "solid-js"
-import type { User } from "~/db/user/schema"
+import type { Action } from "~/db/actions/schema"
 import { Badge } from "~/ui/badge"
-import { Divider } from "~/ui/divider"
-import { Input } from "~/ui/input"
 import {
 	Table,
 	TableBody,
@@ -22,10 +20,10 @@ import {
 	TableHeader,
 	TableRow,
 } from "~/ui/table"
-import { columns } from "./users.columns"
+import { columns } from "./actions.columns"
 
-export default function UsersTable({ users }: { users: User[] }) {
-	const [data] = createSignal(users)
+export default function ActionsTable(props: { actions: Action[] }) {
+	const [data] = createSignal(props.actions)
 	const [columnFilters, setColumnFilters] = createSignal<ColumnFiltersState>([])
 	const [globalFilter, setGlobalFilter] = createSignal("")
 	const debounceSetGlobalFilter = debounce(
@@ -62,15 +60,15 @@ export default function UsersTable({ users }: { users: User[] }) {
 	return (
 		<>
 			{/* Filters, features before table */}
-			<div class="mx-4">
+			{/* <div class="mx-4">
 				<Input
 					value={globalFilter() ?? ""}
 					onInput={(e) => debounceSetGlobalFilter(e.currentTarget.value)}
 					placeholder="Search all columns..."
 				/>
-			</div>
+			</div> */}
 
-			<Divider soft />
+			{/* <Divider soft /> */}
 			{/* Table headers and rows */}
 			<Table
 				bleed
@@ -91,6 +89,7 @@ export default function UsersTable({ users }: { users: User[] }) {
 															: undefined
 													}
 													onClick={header.column.getToggleSortingHandler()}
+													onKeyUp={header.column.getToggleSortingHandler()}
 												>
 													{flexRender(
 														header.column.columnDef.header,
