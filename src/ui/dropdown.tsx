@@ -1,7 +1,7 @@
 import clsx from "clsx"
 
 import type { JSX } from "solid-js"
-import { type AnchorOrButton, Button, type ButtonProps, styles } from "./button"
+import { type AnchorOrButton, type ButtonProps, styles } from "./button"
 
 import type {
 	DropdownMenuContentProps,

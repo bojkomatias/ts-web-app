@@ -15,9 +15,16 @@
         "useNamingConvention": "error",
         "noNonNullAssertion": "off"
       },
-      "nursery": { "useSortedClasses": "warn" },
-      "a11y": { "noSvgWithoutTitle": "off" },
-      "correctness": { "useJsxKeyInIterable": "off" }
+      "nursery": {
+        "useSortedClasses": "warn"
+      },
+      "a11y": {
+        "noSvgWithoutTitle": "off"
+      },
+      "correctness": {
+        "useJsxKeyInIterable": "off",
+        "noUnusedImports": "warn"
+      }
     }
   },
   "formatter": {

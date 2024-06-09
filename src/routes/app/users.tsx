@@ -1,10 +1,9 @@
-import { clientOnly } from "@solidjs/start"
 import { createQuery, useQueryClient } from "@tanstack/solid-query"
 import { Match, Switch } from "solid-js"
 import { getUsers } from "~/db/user/queries/get-users"
 import UsersTable from "~/modules/users/users.table"
 import { Divider } from "~/ui/divider"
-import { Heading, SubHeading } from "~/ui/heading"
+import { Heading } from "~/ui/heading"
 
 export const route = {
 	load: () => {
