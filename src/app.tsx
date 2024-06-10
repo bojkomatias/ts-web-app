@@ -12,7 +12,6 @@ export default function App() {
 			queries: {
 				retry: false,
 				staleTime: 5000,
-				refetchOnWindowFocus: false,
 			},
 		},
 	})

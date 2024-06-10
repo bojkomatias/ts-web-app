@@ -120,7 +120,7 @@ export function TableHeader(props: JSX.HTMLAttributes<HTMLTableCellElement>) {
 			{...props}
 			class={clsx(
 				props.class,
-				"border-b border-b-default-950/10 px-4 py-2 font-medium dark:border-b-white/10 last:pr-[var(--gutter,theme(spacing.2))] first:pl-[var(--gutter,theme(spacing.2))]",
+				"border-b border-b-default-950/5 px-4 py-2 font-medium dark:border-b-white/5 last:pr-[var(--gutter,theme(spacing.2))] first:pl-[var(--gutter,theme(spacing.2))]",
 				grid &&
 					"border-l border-l-default-950/5 dark:border-l-white/5 first:border-l-0",
 				!bleed && "sm:last:pr-1 sm:first:pl-1",

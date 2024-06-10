@@ -15,7 +15,12 @@ export const actions = sqliteTable("actions", {
 	createdAt: text("created_at").notNull().default(sql`CURRENT_TIMESTAMP`),
 })
 
-export const insertActionSchema = createInsertSchema(actions)
+export const insertActionSchema = createInsertSchema(actions, {
+	resource: (schema) =>
+		schema.resource.min(4, { message: "Must be at least 4 characters long" }),
+	action: (schema) =>
+		schema.action.min(4, { message: "Must be at least 4 characters long" }),
+}).pick({ resource: true, action: true })
 
 export const selectActionSchema = createSelectSchema(actions)
 

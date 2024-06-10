@@ -84,7 +84,7 @@ export function DialogDescription(props: JSX.HTMLAttributes<HTMLDivElement>) {
 			{...props}
 			class={clsx(
 				props.class,
-				"mt-2 text-pretty text-default-800 dark:text-default-200",
+				"mt-2 text-pretty text-default-800 text-sm dark:text-default-200",
 			)}
 		/>
 	)

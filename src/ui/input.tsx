@@ -46,11 +46,11 @@ export const Input = (
 							"[&::-webkit-datetime-edit-meridiem-field]:p-0",
 						],
 					// Basic layout
-					"relative block w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing[2.5])-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing[1.5])-1px)]",
+					"relative block w-full appearance-none rounded-lg px-[calc(theme(spacing[3.5])-1px)] py-[calc(theme(spacing.2)-1px)] sm:px-[calc(theme(spacing[3])-1px)] sm:py-[calc(theme(spacing.1)-1px)]",
 					// Typography
 					"text-base/6 text-default-950 dark:text-white placeholder:text-default-500 sm:text-sm/6",
 					// Border
-					"border border-default-950/10 dark:border-white/10 dark:hover:border-white/20hover:border-default-950/20",
+					"border border-default-950/5 dark:border-white/5 dark:hover:border-white/10 hover:border-default-950/10",
 					// Background color
 					"bg-transparent dark:bg-white/5",
 					// Hide default focus styles
