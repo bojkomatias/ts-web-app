@@ -7,7 +7,7 @@
 - [x] Configure linter + formatter
 - [x] Connect ORM + DB
 - [] Setup query layer
-- [] Setup form management
+- [x] Setup form management
 - [] Validations
 - [] Internacionalization
 - [] Caching

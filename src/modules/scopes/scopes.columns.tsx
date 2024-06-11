@@ -1,20 +1,22 @@
 import { createColumnHelper } from "@tanstack/solid-table";
-import type { Action } from "~/db/actions/schema";
+import { Scope } from "~/db/scopes/schema";
 import { Button } from "~/ui/button";
 
-const columnHelper = createColumnHelper<Action>();
+const columnHelper = createColumnHelper<Scope>();
 
+// Always put "id" in your columns to enable features
 export const columns = [
   columnHelper.accessor("id", {
-    header: "id",
+    id: "id",
+    header: "Id",
     cell: (info) => info.getValue(),
     footer: (props) => props.column.id,
   }),
 
   columnHelper.accessor((row) => row.resource, {
     id: "resource",
-    cell: (info) => info.getValue(),
     header: () => "Resource",
+    cell: (info) => info.getValue(),
     footer: (props) => props.column.id,
   }),
 

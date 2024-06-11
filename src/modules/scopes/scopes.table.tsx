@@ -12,7 +12,7 @@ import {
   SortingState,
 } from "@tanstack/solid-table";
 import { For, type JSX, Show, createSignal } from "solid-js";
-import type { Action } from "~/db/actions/schema";
+import { columns } from "./scopes.columns";
 import { Badge } from "~/ui/badge";
 import { Divider } from "~/ui/divider";
 import { Input } from "~/ui/input";
@@ -24,19 +24,20 @@ import {
   TableHeader,
   TableRow,
 } from "~/ui/table";
-import { columns } from "./actions.columns";
 import {
   ChevronsDownIcon,
   ChevronsDownUpIcon,
   ChevronsUpDownIcon,
   ChevronsUpIcon,
 } from "lucide-solid";
+import { Scope } from "~/db/scopes/schema";
+import { useSubmission } from "@solidjs/router";
+import { postScope } from "./actions/post-scope";
 
-export default function ActionsTable(props: {
-  actions: Action[];
-  slot?: JSX.Element;
-}) {
-  const [data] = createSignal(props.actions);
+export function ScopesTable(props: { scopes: Scope[]; slot?: JSX.Element }) {
+  const [data] = createSignal(props.scopes);
+
+  const sub = useSubmission(postScope);
 
   const [columnFilters, setColumnFilters] = createSignal<ColumnFiltersState>(
     [],
@@ -91,7 +92,6 @@ export default function ActionsTable(props: {
         <span class="grow" />
         {props.slot}
       </div>
-
       <Divider soft />
       {/* Table headers and rows */}
       <Table
@@ -137,6 +137,21 @@ export default function ActionsTable(props: {
           </For>
         </TableHead>
         <TableBody>
+          <Show when={sub.pending}>
+            <TableRow>
+              <For each={table.getRowModel().rows[0].getVisibleCells()}>
+                {(cell) => (
+                  <TableCell>
+                    {
+                      sub.input[0][
+                        cell.column.columnDef.id as keyof (typeof sub.input)[0]
+                      ]
+                    }
+                  </TableCell>
+                )}
+              </For>
+            </TableRow>
+          </Show>
           <For each={table.getRowModel().rows.slice(0, 20)}>
             {(row) => (
               <TableRow>

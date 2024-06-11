@@ -11,13 +11,10 @@ import {
   DialogTitle,
 } from "~/ui/dialog";
 import { Input } from "~/ui/input";
-
-import { insertActionSchema } from "~/db/actions/schema";
-
-import { action, useAction, useNavigate } from "@solidjs/router";
+import { useAction } from "@solidjs/router";
 import { useQueryClient } from "@tanstack/solid-query";
 import type { z } from "zod";
-import { createAction } from "~/db/actions/commands/create-action";
+
 import {
   ErrorMesssage,
   Field,
@@ -25,41 +22,37 @@ import {
   Fieldset,
   Label,
 } from "~/ui/fieldset";
-import { getAllActionsQueryOptions } from "~/lib/query-options/actions-query";
-import { loadingCreateActionQueryOptions } from "~/lib/query-options/action-query";
+import { insertScopeSchema } from "~/db/scopes/schema";
+import { getAllScopesQueryOptions } from "./queries/scopes-query";
+import { postScope } from "./actions/post-scope";
 
-const _action = action(async (value: z.infer<typeof insertActionSchema>) => {
-  return await createAction(value);
-});
-
-export function ActionsForm(props: {
+export function ScopeForm(props: {
   open: Accessor<boolean>;
   setOpen: Setter<boolean>;
 }) {
   const queryClient = useQueryClient();
 
-  const serverAction = useAction(_action);
+  const action = useAction(postScope);
 
   const form = createForm(() => ({
     defaultValues: {
       resource: "",
       action: "",
-    } as z.infer<typeof insertActionSchema>,
+    } as z.infer<typeof insertScopeSchema>,
     onSubmit: async ({ value }) => {
-      // const existingActions = await queryClient.ensureQueryData(
-      //   getAllActionsQueryOptions,
-      // );
+      const existingActions = await queryClient.ensureQueryData(
+        getAllScopesQueryOptions,
+      );
 
-      // // placeholder loading state
+      // placeholder loading state
       // queryClient.setQueryData(loadingCreateActionQueryOptions.queryKey, {
       //   action: value,
       // });
 
-      console.log(" NAVEGANDO");
       props.setOpen(false);
 
       try {
-        const res = await serverAction(value);
+        const res = await action(value);
         console.log("RESSSS", res);
       } catch (error) {
         console.error("Something went wrong creating action:", error);
@@ -89,7 +82,7 @@ export function ActionsForm(props: {
               <FieldGroup>
                 <form.Field
                   name="resource"
-                  validators={{ onBlur: insertActionSchema.shape.resource }}
+                  validators={{ onBlur: insertScopeSchema.shape.resource }}
                 >
                   {(field) => (
                     <Field>
@@ -108,7 +101,7 @@ export function ActionsForm(props: {
                 </form.Field>
                 <form.Field
                   name="action"
-                  validators={{ onBlur: insertActionSchema.shape.action }}
+                  validators={{ onBlur: insertScopeSchema.shape.action }}
                 >
                   {(field) => (
                     <Field>
