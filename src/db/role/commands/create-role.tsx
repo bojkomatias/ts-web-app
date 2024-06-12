@@ -1,16 +1,19 @@
-"use server"
+"use server";
 
-import type { z } from "zod"
-import { db } from "~/db/client"
-import { insertRoleSchema, roles } from "../schema"
+import type { z } from "zod";
+import { db } from "~/db/client";
+import { insertRoleSchema, roles } from "../schema";
+import { insertPermissionsSchema } from "../../permissions/schema";
 
-export async function createRole(newRole: z.infer<typeof insertRoleSchema>) {
-	const parsedRole = insertRoleSchema.parse(newRole)
+const schema = insertRoleSchema.merge(insertPermissionsSchema);
 
-	const [result] = await db
-		.insert(roles)
-		.values(parsedRole)
-		.returning({ id: roles.id, role: roles.role })
+export async function createRole(newRole: z.infer<typeof schema>) {
+  const parsedRole = schema.parse(newRole);
 
-	return result
+  const [result] = await db
+    .insert(roles)
+    .values(parsedRole)
+    .returning({ id: roles.id, role: roles.role });
+
+  return result;
 }

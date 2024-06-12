@@ -6,20 +6,11 @@ import { scopes, insertScopeSchema } from "../schema";
 import { fakeDelay } from "~/lib/fake-delay";
 
 export const createScope = async (
-  newAction: z.infer<typeof insertScopeSchema>,
+  newScope: z.infer<typeof insertScopeSchema>,
 ) => {
-  await fakeDelay(6000);
-  try {
-    const data = insertScopeSchema.parse(newAction);
-    const [result] = await db.insert(scopes).values(data).returning({
-      id: scopes.id,
-      resource: scopes.resource,
-      action: scopes.action,
-    });
+  await fakeDelay(2000);
 
-    return result;
-  } catch (error) {
-    console.error(error);
-    return new Error("An error ocurred", { cause: error });
-  }
+  const [result] = await db.insert(scopes).values(newScope).returning();
+
+  return result;
 };

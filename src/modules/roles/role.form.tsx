@@ -21,27 +21,28 @@ import {
   Fieldset,
   Label,
 } from "~/ui/fieldset";
-import { insertScopeSchema } from "~/db/scopes/schema";
-import { postScope } from "./actions/post-scope";
+import { insertRoleSchema } from "~/db/role/schema";
+import { postRole } from "./actions/post-role";
 
-export function ScopeForm(props: {
+export function RoleForm(props: {
   open: Accessor<boolean>;
   setOpen: Setter<boolean>;
 }) {
   const queryClient = useQueryClient();
 
-  const action = useAction(postScope);
+  const action = useAction(postRole);
 
   const form = createForm(() => ({
     defaultValues: {
-      resource: "",
-      action: "",
-    } as z.infer<typeof insertScopeSchema>,
+      role: "",
+    } as z.infer<typeof insertRoleSchema>,
     onSubmit: async ({ value }) => {
       props.setOpen(false);
       try {
         await action(value);
-        await queryClient.refetchQueries({ queryKey: ["get-all-scopes"] });
+        await queryClient.refetchQueries({
+          queryKey: ["get-roles-with-permissions"],
+        });
       } catch (error) {
         console.error("Something went wrong creating action:", error);
       }
@@ -59,7 +60,7 @@ export function ScopeForm(props: {
             form.handleSubmit();
           }}
         >
-          <DialogTitle>Create scope</DialogTitle>
+          <DialogTitle>Create role</DialogTitle>
           <DialogDescription>
             Remember you got to talk with a developer, scopes or features are
             related to code flow.
@@ -68,9 +69,9 @@ export function ScopeForm(props: {
             <Fieldset>
               <FieldGroup>
                 <form.Field
-                  name="resource"
+                  name="role"
                   validators={{
-                    onSubmit: insertScopeSchema.shape.resource,
+                    onSubmit: insertRoleSchema.shape.role,
                   }}
                 >
                   {(field) => (
@@ -88,33 +89,13 @@ export function ScopeForm(props: {
                     </Field>
                   )}
                 </form.Field>
-                <form.Field
-                  name="action"
-                  validators={{ onSubmit: insertScopeSchema.shape.action }}
-                >
-                  {(field) => (
-                    <Field>
-                      <Label>Action</Label>
-                      <Input
-                        name={field().name}
-                        value={field().state.value}
-                        onBlur={field().handleBlur}
-                        onInput={(e) => field().handleChange(e.target.value)}
-                      />
-                      <ErrorMesssage>
-                        {field().state.meta.touchedErrors}
-                      </ErrorMesssage>
-                    </Field>
-                  )}
-                </form.Field>
-              </FieldGroup>
             </Fieldset>
           </DialogBody>
           <DialogActions>
             <Button type="reset" plain onClick={() => props.setOpen(false)}>
               Cancel
             </Button>
-            <Button type="submit">Create Action</Button>
+            <Button type="submit">Create Role</Button>
           </DialogActions>
         </form>
       </DialogContent>

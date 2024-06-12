@@ -78,7 +78,7 @@ export default function AppLayout(props: RouteSectionProps) {
               </SidebarItem>
               <SidebarItem href="/app/scopes">
                 <KeyRoundIcon data-slot="icon" />
-                <SidebarLabel>Actions</SidebarLabel>
+                <SidebarLabel>Scopes</SidebarLabel>
               </SidebarItem>
             </SidebarSection>
             <SidebarSpacer />
