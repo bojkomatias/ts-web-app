@@ -25,8 +25,8 @@ import { insertRoleSchema } from "~/db/role/schema";
 import { postRole } from "./actions/post-role";
 
 export function RoleForm(props: {
-  open: Accessor<boolean>;
-  setOpen: Setter<boolean>;
+  open: boolean;
+  setOpen: (isOpen: boolean) => void;
 }) {
   const queryClient = useQueryClient();
 
@@ -51,7 +51,7 @@ export function RoleForm(props: {
   }));
 
   return (
-    <Dialog open={props.open()} onOpenChange={props.setOpen}>
+    <Dialog open={props.open} onOpenChange={props.setOpen}>
       <DialogContent>
         <form
           onSubmit={(e) => {
@@ -89,6 +89,7 @@ export function RoleForm(props: {
                     </Field>
                   )}
                 </form.Field>
+              </FieldGroup>
             </Fieldset>
           </DialogBody>
           <DialogActions>

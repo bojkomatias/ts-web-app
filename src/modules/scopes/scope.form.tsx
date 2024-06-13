@@ -25,8 +25,8 @@ import { insertScopeSchema } from "~/db/scopes/schema";
 import { postScope } from "./actions/post-scope";
 
 export function ScopeForm(props: {
-  open: Accessor<boolean>;
-  setOpen: Setter<boolean>;
+  open: boolean;
+  setOpen: (isOpen: boolean) => void;
 }) {
   const queryClient = useQueryClient();
 

@@ -72,7 +72,7 @@ export default function AppLayout(props: RouteSectionProps) {
                 <UsersIcon data-slot="icon" />
                 <SidebarLabel>Users</SidebarLabel>
               </SidebarItem>
-              <SidebarItem href="/app/role-permissions">
+              <SidebarItem href="/app/roles">
                 <ShieldCheckIcon data-slot="icon" />
                 <SidebarLabel>Role Permissions</SidebarLabel>
               </SidebarItem>

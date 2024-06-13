@@ -3,6 +3,7 @@ import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { roles } from "../role/schema";
 import { scopes } from "../scopes/schema";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
+import { relations } from "drizzle-orm";
 
 /* Intermediate table between Roles <> Scopes  */
 export const permissions = sqliteTable("permissions", {
@@ -14,6 +15,17 @@ export const permissions = sqliteTable("permissions", {
     .notNull()
     .references(() => scopes.id),
 });
+
+export const permissionsRelation = relations(permissions, ({ one }) => ({
+  role: one(roles, {
+    fields: [permissions.roleId],
+    references: [roles.id],
+  }),
+  scope: one(scopes, {
+    fields: [permissions.scopeId],
+    references: [scopes.id],
+  }),
+}));
 
 export const selectPermissionsSchema = createSelectSchema(permissions);
 

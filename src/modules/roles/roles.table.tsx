@@ -12,7 +12,6 @@ import {
   SortingState,
 } from "@tanstack/solid-table";
 import { For, type JSX, Show, createSignal } from "solid-js";
-import { columns } from "./scopes.columns";
 import { Badge } from "~/ui/badge";
 import { Divider } from "~/ui/divider";
 import { Input } from "~/ui/input";
@@ -32,10 +31,14 @@ import {
 } from "lucide-solid";
 import { Scope } from "~/db/scopes/schema";
 import { useSubmission } from "@solidjs/router";
-import { postScope } from "./actions/post-scope";
+import { getRolesWithPermissions } from "~/db/role/queries/get-role-with-permissions";
+import { columns } from "./roles.columns";
 
-export function ScopesTable(props: { scopes: Scope[]; slot?: JSX.Element }) {
-  const submission = useSubmission(postScope);
+export function RolesTable(props: {
+  roles: Awaited<ReturnType<typeof getRolesWithPermissions>>;
+  slot?: JSX.Element;
+}) {
+  // const submission = useSubmission(postScope);
 
   const [columnFilters, setColumnFilters] = createSignal<ColumnFiltersState>(
     [],
@@ -49,7 +52,7 @@ export function ScopesTable(props: { scopes: Scope[]; slot?: JSX.Element }) {
 
   const table = createSolidTable({
     get data() {
-      return props.scopes;
+      return props.roles;
     },
     columns,
     state: {
@@ -135,7 +138,7 @@ export function ScopesTable(props: { scopes: Scope[]; slot?: JSX.Element }) {
           </For>
         </TableHead>
         <TableBody>
-          <Show when={submission.pending}>
+          {/* <Show when={submission.pending}>
             <TableRow class="animate-pulse">
               <For each={table.getVisibleLeafColumns()}>
                 {(col) => (
@@ -147,7 +150,7 @@ export function ScopesTable(props: { scopes: Scope[]; slot?: JSX.Element }) {
                 )}
               </For>
             </TableRow>
-          </Show>
+          </Show> */}
           <For each={table.getRowModel().rows.slice(0, 20)}>
             {(row) => (
               <TableRow>

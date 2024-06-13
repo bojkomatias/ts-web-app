@@ -1,7 +1,8 @@
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import { z } from "zod";
+import { permissions } from "../permissions/schema";
 
 export const scopes = sqliteTable("scopes", {
   id: integer("id").primaryKey({ autoIncrement: true }),
@@ -16,6 +17,10 @@ export const scopes = sqliteTable("scopes", {
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),
 });
+
+export const scopesRelations = relations(scopes, ({ many }) => ({
+  permissions: many(permissions),
+}));
 
 const resource = z.enum(["users", "roles", "permissions"]);
 const action = z.enum(["read", "update", "create", "delete"]);

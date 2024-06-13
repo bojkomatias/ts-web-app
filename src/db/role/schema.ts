@@ -1,7 +1,8 @@
-import { sql } from "drizzle-orm";
+import { relations, sql } from "drizzle-orm";
 import { integer, sqliteTable, text } from "drizzle-orm/sqlite-core";
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
 import type { z } from "zod";
+import { permissions } from "../permissions/schema";
 
 // SQL Table
 export const roles = sqliteTable("roles", {
@@ -16,6 +17,10 @@ export const roles = sqliteTable("roles", {
     .notNull()
     .default(sql`CURRENT_TIMESTAMP`),
 });
+
+export const rolesRelations = relations(roles, ({ many }) => ({
+  permissions: many(permissions),
+}));
 
 export const insertRoleSchema = createInsertSchema(roles).pick({ role: true });
 
