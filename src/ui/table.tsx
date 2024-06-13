@@ -96,7 +96,7 @@ export function TableRow(
 				class={clsx(
 					props.class,
 					props.href &&
-						"has-[[data-row-link][data-focus]]:-outline-offset-2 dark:focus-within:bg-white/[2.5%] has-[[data-row-link][data-focus]]:outline has-[[data-row-link][data-focus]]:outline-2 has-[[data-row-link][data-focus]]:outline-blue-500",
+						"has-[[data-row-link][data-focus]]:-outline-offset-2 dark:focus-within:bg-white/[2.5%] has-[[data-row-link][data-focus]]:outline has-[[data-row-link][data-focus]]:outline-2 has-[[data-row-link][data-focus]]:outline-accent-500",
 					striped && "dark:even:bg-white/[2.5%] even:bg-default-950/[2.5%]",
 					props.href &&
 						striped &&

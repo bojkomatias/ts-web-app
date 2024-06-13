@@ -6,7 +6,7 @@ export const styles = {
 		// Base
 		"relative isolate inline-flex items-center justify-center gap-x-2 rounded-lg border font-medium",
 		// Focus
-		"focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500",
+		"focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-accent-500",
 		// Disabled
 		"disabled:opacity-50",
 		// Icon
@@ -61,20 +61,20 @@ export const styles = {
 		],
 	},
 	colors: {
-		"dark/zinc": [
-			"text-white [--btn-bg:theme(colors.zinc.900)] [--btn-border:theme(colors.zinc.950/90%)] [--btn-hover-overlay:theme(colors.white/10%)]",
-			"dark:text-white dark:[--btn-bg:theme(colors.zinc.600)] dark:[--btn-hover-overlay:theme(colors.white/5%)]",
-			"[--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.300)] hover:[--btn-icon:theme(colors.zinc.300)]",
-		],
 		light: [
-			"text-default-950 [--btn-bg:white] [--btn-border:theme(colors.zinc.950/10%)] [--btn-hover-overlay:theme(colors.zinc.950/2.5%)] active:[--btn-border:theme(colors.zinc.950/15%)] hover:[--btn-border:theme(colors.zinc.950/15%)]",
-			"dark:text-white dark:[--btn-hover-overlay:theme(colors.white/5%)] dark:[--btn-bg:theme(colors.zinc.800)]",
-			"[--btn-icon:theme(colors.zinc.500)] active:[--btn-icon:theme(colors.zinc.700)] hover:[--btn-icon:theme(colors.zinc.700)] dark:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.400)] dark:hover:[--btn-icon:theme(colors.zinc.400)]",
+			"text-default-950 [--btn-bg:white] [--btn-border:theme(colors.default.950/10%)] [--btn-hover-overlay:theme(colors.default.950/2.5%)] active:[--btn-border:theme(colors.default.950/15%)] hover:[--btn-border:theme(colors.default.950/15%)]",
+			"dark:text-white dark:[--btn-hover-overlay:theme(colors.white/5%)] dark:[--btn-bg:theme(colors.default.800)]",
+			"[--btn-icon:theme(colors.default.500)] active:[--btn-icon:theme(colors.default.700)] hover:[--btn-icon:theme(colors.default.700)] dark:[--btn-icon:theme(colors.default.500)] dark:active:[--btn-icon:theme(colors.default.400)] dark:hover:[--btn-icon:theme(colors.default.400)]",
 		],
-		"dark/white": [
-			"text-white [--btn-bg:theme(colors.zinc.900)] [--btn-border:theme(colors.zinc.950/90%)] [--btn-hover-overlay:theme(colors.white/10%)]",
-			"dark:text-default-950 dark:[--btn-bg:white] dark:[--btn-hover-overlay:theme(colors.zinc.950/5%)]",
-			"[--btn-icon:theme(colors.zinc.400)] active:[--btn-icon:theme(colors.zinc.300)] hover:[--btn-icon:theme(colors.zinc.300)] dark:[--btn-icon:theme(colors.zinc.500)] dark:active:[--btn-icon:theme(colors.zinc.400)] dark:hover:[--btn-icon:theme(colors.zinc.400)]",
+		"dark/default": [
+			"text-default-50 [--btn-bg:theme(colors.default.900)] [--btn-border:theme(colors.default.950/90%)] [--btn-hover-overlay:theme(colors.default.50/10%)]",
+			"dark:text-white dark:[--btn-bg:theme(colors.default.600)] dark:[--btn-hover-overlay:theme(colors.default.50/5%)]",
+			"[--btn-icon:theme(colors.default.400)] active:[--btn-icon:theme(colors.default.300)] hover:[--btn-icon:theme(colors.default.300)]",
+		],
+		"white/default": [
+			"text-default-50 [--btn-bg:theme(colors.default.900)] [--btn-border:theme(colors.default.950/90%)] [--btn-hover-overlay:theme(colors.default.50/10%)]",
+			"dark:text-default-950 dark:[--btn-bg:white] dark:[--btn-hover-overlay:theme(colors.default.950/5%)]",
+			"[--btn-icon:theme(colors.default.400)] active:[--btn-icon:theme(colors.default.300)] hover:[--btn-icon:theme(colors.default.300)] dark:[--btn-icon:theme(colors.default.500)] dark:active:[--btn-icon:theme(colors.default.400)] dark:hover:[--btn-icon:theme(colors.default.400)]",
 		],
 		dark: [
 			"text-white [--btn-bg:theme(colors.zinc.900)] [--btn-border:theme(colors.zinc.950/90%)] [--btn-hover-overlay:theme(colors.white/10%)]",

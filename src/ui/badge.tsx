@@ -60,7 +60,7 @@ export const BadgeButton = ({
 } & ButtonProps) => {
 	const classes = clsx(
 		props.class,
-		"group relative inline-flex rounded-lg focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-blue-500",
+		"group relative inline-flex rounded-lg focus:outline-none data-[focus]:outline data-[focus]:outline-2 data-[focus]:outline-offset-2 data-[focus]:outline-accent-500",
 	)
 
 	return "href" in props ? (

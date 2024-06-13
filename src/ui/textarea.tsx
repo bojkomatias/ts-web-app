@@ -17,7 +17,7 @@ export const Textarea = ({
 				// Background color is moved to control and shadow is removed in dark mode so hide `before` pseudo
 				"dark:before:hidden",
 				// Focus ring
-				"after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-blue-500 after:ring-inset",
+				"after:pointer-events-none after:absolute after:inset-0 after:rounded-lg after:ring-transparent sm:after:focus-within:ring-2 sm:after:focus-within:ring-accent-500 after:ring-inset",
 				// Disabled state
 				"before:has-[[disabled]]:bg-default-950/5 has-[[disabled]]:opacity-50 before:has-[[disabled]]:shadow-none",
 			])}

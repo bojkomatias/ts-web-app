@@ -81,7 +81,7 @@ export function DropdownItem(props: AnchorOrButton) {
 		// Text styles
 		"text-left text-base/6 text-default-950 sm:text-sm/6 dark:text-white forced-colors:text-[CanvasText]",
 		// Focus
-		"hover:bg-blue-500 hover:text-white",
+		"hover:bg-accent-500 hover:text-white",
 		// Disabled state
 		"data-[disabled]:opacity-50",
 		// Forced colors mode
